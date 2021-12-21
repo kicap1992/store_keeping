@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Halaman Penambahan Produk Baru - Admin</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="description" content="HexaBit Bootstrap 4x Admin Template">
+    <meta name="author" content="WrapTheme, www.thememakker.com">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="template_assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="template_assets/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="template_assets/vendor/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css">
+    <!-- <link rel="stylesheet" href="template_assets/vendor/chartist/css/chartist.min.css"> -->
+    <!-- <link rel="stylesheet" href="template_assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css"> -->
+    <link rel="stylesheet" href="template_assets/vendor/toastr/toastr.min.css">
+    <!-- <link rel="stylesheet" href="template_assets/vendor/morrisjs/morris.css" /> -->
+
+    <link rel="stylesheet" href="assets/dist/css/lightbox.min.css">
+
+    <link rel="stylesheet" href="template_assets/vendor/sweetalert/sweetalert.css">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/color_skins.css">
+</head>
+
+<body class="theme-cyan">
+
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="m-t-30"><img src="template_assets/images/icon-light.svg" width="48" height="48" alt="HexaBit">
+            </div>
+            <p>Loading...</p>
+        </div>
+    </div>
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+
+    <div id="wrapper">
+
+        <nav class="navbar navbar-fixed-top">
+            <div class="container-fluid">
+
+                <div class="navbar-left">
+                    <div class="navbar-btn">
+                        <a href="index.html"><img src="template_assets/images/icon-light.svg" alt="HexaBit Logo"
+                                class="img-fluid logo"></a>
+                        <button type="button" class="btn-toggle-offcanvas"><i
+                                class="lnr lnr-menu fa fa-bars"></i></button>
+                    </div>
+                    <a href="javascript:void(0);" class="icon-menu btn-toggle-fullwidth"><i
+                            class="fa fa-arrow-left"></i></a>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown dropdown-animated scale-right">
+                            <a href="javascript:void(0);" class="dropdown-toggle icon-menu" data-toggle="dropdown"><i
+                                    class="icon-grid"></i></a>
+                            <ul class="dropdown-menu menu-icon app_menu">
+                                <li>
+                                    <a class="#">
+                                        <i class="icon-envelope"></i>
+                                        <span>Halaman Penjualan</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="#">
+                                        <i class="icon-bubbles"></i>
+                                        <span>Laporan </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="navbar-right">
+                    <!-- <form id="navbar-search" class="navbar-form search-form">
+                        <input value="" class="form-control" placeholder="Search here..." type="text">
+                        <button type="button" class="btn btn-default"><i class="icon-magnifier"></i></button>
+                    </form> -->
+
+                    <div id="navbar-menu">
+                        <ul class="nav navbar-nav">
+
+                            <li><a href="page-login.html" class="icon-menu"><i class="icon-power"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <div id="left-sidebar" class="sidebar">
+            <div class="navbar-brand">
+                <a href="index.html"><img src="template_assets/images/icon-light.svg" alt="HexaBit Logo"
+                        class="img-fluid logo"><span>Kicap Karan</span></a>
+                <button type="button" class="btn-toggle-offcanvas btn btn-sm btn-default float-right"><i
+                        class="lnr lnr-menu fa fa-chevron-circle-left"></i></button>
+            </div>
+            <div class="sidebar-scroll">
+                <div class="user-account">
+                    <div class="user_div">
+                        <img src="template_assets/images/user.png" class="user-photo" alt="User Profile Picture">
+                    </div>
+                    <div class="dropdown">
+                        <span>Welcome,</span>
+                        <a href="javascript:void(0);" class="dropdown-toggle user-name"
+                            data-toggle="dropdown"><strong>Christy
+                                Wert</strong></a>
+                        <ul class="dropdown-menu dropdown-menu-right account">
+                            <li><a href="page-profile.html"><i class="icon-user"></i>My Profile</a></li>
+                            <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
+                            <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li>
+                            <li class="divider"></li>
+                            <li><a href="page-login.html"><i class="icon-power"></i>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <nav id="left-sidebar-nav" class="sidebar-nav">
+                    <ul id="main-menu" class="metismenu">
+                        <li><a href="index.html"><i class=" icon-basket-loaded"></i><span>Halaman
+                                    Penjualan</span></a></li>
+                        <li class="active"><a href="penambahan_produk.html"><i class="fa fa-edit"></i><span>
+                                    Produk Baru</span></a></li>
+                        <li><a href="list_produk.html"><i class=" icon-list"></i><span>List Produk</span></a></li>
+                        <li><a href="laporan.html"><i class="icon-book-open"></i><span>Log Laporan</span></a></li>
+
+
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div id="main-content">
+            <div class="block-header">
+                <div class="row clearfix">
+                    <div class="col-md-6 col-sm-12">
+                        <h2>Halaman Penambahan Produk Baru</h2>
+                    </div>
+                    <div class="col-md-6 col-sm-12 text-right">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
+                            <li class="breadcrumb-item active">Halaman Penambahan Produk Baru</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <!-- SINI MAIN NYA -->
+
+                <div class="row clearfix">
+                    <div class="col-lg-3 col-md-1"></div>
+
+                    <div class="col-lg-6 col-md-10">
+                        <div class="card">
+                            <div class="body">
+                                <div class="form-group">
+                                    <label>Foto Produk</label>
+                                    <input type="file" class="form-control" placeholder="Masukkan Kode Produk">
+                                </div>
+                                <div class="form-group">
+                                    <label>Kode Produk</label>
+                                    <input type="text" class="form-control" placeholder="Masukkan Kode Produk">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Nama Produk</label>
+                                    <input type="text" class="form-control" placeholder="Masukkan Nama Produk">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Harga Produk <i>(Per Helai)</i></label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Rp.</span>
+                                        </div>
+                                        <input type="text" class="form-control"
+                                            placeholder="Masukkan Harga Produk per Helai">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Jumlah Stok</label>
+                                    <input type="text" class="form-control" placeholder="Masukkan Jumlah Stok Produk">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Pembelian Stok</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Rp.</span>
+                                        </div>
+                                        <input type="text" class="form-control"
+                                            placeholder="Masukkan Harga Pembelian Stok">
+                                    </div>
+                                </div>
+
+                                <div class="form-group text-center">
+                                    <button class="btn btn-primary text-center" onclick="tambah_produk_baru()">Tambah
+                                        Produk Baru</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-1"></div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Javascript -->
+    <script src="assets/bundles/libscripts.bundle.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script src="assets/bundles/vendorscripts.bundle.js"></script>
+
+    <!-- <script src="assets/bundles/chartist.bundle.js"></script> -->
+    <script src="template_assets/vendor/toastr/toastr.js"></script>
+    <!--script src="assets/bundles/morrisscripts.bundle.js"></script-->
+    <!-- Morris Plugin Js -->
+
+    <script src="assets/bundles/mainscripts.bundle.js"></script>
+    <script src="assets/js/index.js"></script>
+    <script src="assets/dist/js/lightbox.min.js"></script>
+    <script src="template_assets/vendor/sweetalert/sweetalert.js"></script>
+
+    <script>
+        function tambah_produk_baru() {
+            // icon info, text "Yakin ingin menambah produk ini?", title "Tambah Produk", button "Ya" dan "Tidak"
+            swal({
+                title: "Tambah Produk Baru",
+                text: "Yakin ingin menambah produk ini?",
+                icon: "info",
+                buttons: true,
+                // dangerMode: true,
+            }).
+                then((willDelete) => {
+                    if (willDelete) {
+                        swal("Produk berhasil ditambahkan!", {
+                            icon: "success",
+                        });
+                    }
+                });
+        }
+    </script>
+</body>
+
+</html>
