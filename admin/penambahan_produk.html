@@ -165,16 +165,19 @@
                             <div class="body">
                                 <div class="form-group">
                                     <label>Foto Produk</label>
-                                    <input type="file" class="form-control" placeholder="Masukkan Kode Produk">
+                                    <input type="file" class="form-control" id="foto" placeholder="Masukkan Kode Produk"
+                                        on>
                                 </div>
                                 <div class="form-group">
                                     <label>Kode Produk</label>
-                                    <input type="text" class="form-control" placeholder="Masukkan Kode Produk">
+                                    <input type="text" class="form-control" id="kode_barang"
+                                        placeholder="Masukkan Kode Produk" maxlength="6">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Nama Produk</label>
-                                    <input type="text" class="form-control" placeholder="Masukkan Nama Produk">
+                                    <input type="text" class="form-control" id="nama"
+                                        placeholder="Masukkan Nama Produk">
                                 </div>
 
                                 <div class="form-group">
@@ -184,13 +187,14 @@
                                             <span class="input-group-text">Rp.</span>
                                         </div>
                                         <input type="text" class="form-control"
-                                            placeholder="Masukkan Harga Produk per Helai">
+                                            placeholder="Masukkan Harga Produk per Helai" id="harga_jual" maxlength="7">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Jumlah Stok</label>
-                                    <input type="text" class="form-control" placeholder="Masukkan Jumlah Stok Produk">
+                                    <input type="text" class="form-control" placeholder="Masukkan Jumlah Stok Produk"
+                                        id="jumlah" maxlength="4" onkeypress="return isNumberKey(event)">
                                 </div>
 
                                 <div class="form-group">
@@ -200,7 +204,8 @@
                                             <span class="input-group-text">Rp.</span>
                                         </div>
                                         <input type="text" class="form-control"
-                                            placeholder="Masukkan Harga Pembelian Stok">
+                                            placeholder="Masukkan Harga Pembelian Stok" id="harga_pembelian_stok"
+                                            maxlength="10">
                                     </div>
                                 </div>
 
@@ -237,25 +242,82 @@
     <script src="assets/js/index.js"></script>
     <script src="assets/dist/js/lightbox.min.js"></script>
     <script src="template_assets/vendor/sweetalert/sweetalert.js"></script>
+    <script src="main.js"></script>
 
     <script>
-        function tambah_produk_baru() {
-            // icon info, text "Yakin ingin menambah produk ini?", title "Tambah Produk", button "Ya" dan "Tidak"
-            swal({
-                title: "Tambah Produk Baru",
-                text: "Yakin ingin menambah produk ini?",
-                icon: "info",
-                buttons: true,
-                // dangerMode: true,
-            }).
-                then((willDelete) => {
-                    if (willDelete) {
-                        swal("Produk berhasil ditambahkan!", {
-                            icon: "success",
-                        });
-                    }
-                });
+        document.getElementById("foto").onchange = function () {
+            let foto_produk = document.getElementById('foto').files[0];
+            check_file(foto_produk)
         }
+
+        async function tambah_produk_baru() {
+            //create let variable foto_produk = document.getElementById('foto_produk') files;
+            let foto_produk = document.getElementById('foto').files[0];
+            let kode_produk = document.getElementById('kode_barang').value;
+            let nama_produk = document.getElementById('nama').value;
+            let harga_produk = document.getElementById('harga_jual').value;
+            let jumlah_stok = document.getElementById('jumlah').value;
+            let pembelian_stok = document.getElementById('harga_pembelian_stok').value;
+
+            //if foto_produk == null or foto_produk == undefined then toastr.error('Foto Produk Tidak Boleh Kosong') focus on foto_produk else if kode_produk == '' or kode_produk == undefined then toastr.error('Kode Produk Tidak Boleh Kosong') focus on kode_produk else if nama_produk == '' or nama_produk == undefined then toastr.error('Nama Produk Tidak Boleh Kosong') focus on nama_produk else if harga_produk == '' or harga_produk == undefined then toastr.error('Harga Produk Tidak Boleh Kosong') focus on harga_produk else if jumlah_stok == '' or jumlah_stok == undefined then toastr.error('Jumlah Stok Tidak Boleh Kosong') focus on jumlah_stok else if pembelian_stok == '' or pembelian_stok == undefined then toastr.error('Pembelian Stok Tidak Boleh Kosong') focus on pembelian_stok else console.log('ok')
+            if (foto_produk == null || foto_produk == undefined) {
+                toastr.error('Foto Produk Tidak Boleh Kosong')
+                document.getElementById('foto').focus()
+            } else if (kode_produk == '' || kode_produk == undefined) {
+                toastr.error('Kode Produk Tidak Boleh Kosong')
+                document.getElementById('kode_barang').focus()
+            } else if (nama_produk == '' || nama_produk == undefined) {
+                toastr.error('Nama Produk Tidak Boleh Kosong')
+                document.getElementById('nama').focus()
+            } else if (harga_produk == '' || harga_produk == undefined) {
+                toastr.error('Harga Produk Tidak Boleh Kosong')
+                document.getElementById('harga_jual').focus()
+            } else if (jumlah_stok == '' || jumlah_stok == undefined) {
+                toastr.error('Jumlah Stok Tidak Boleh Kosong')
+                document.getElementById('jumlah').focus()
+            } else if (pembelian_stok == '' || pembelian_stok == undefined) {
+                toastr.error('Pembelian Stok Tidak Boleh Kosong')
+                document.getElementById('harga_pembelian_stok').focus()
+            } else {
+                //create let variable data = json all data
+                let data_all = {
+                    kode_produk: kode_produk,
+                    nama_produk: nama_produk,
+                    harga_produk: harga_produk,
+                    jumlah_stok: jumlah_stok,
+                    pembelian_stok: pembelian_stok
+                }
+
+                //create try catch
+                try {
+                    // create let variable data = new FormData()
+                    let data = new FormData()
+                    data.append('foto', foto_produk)
+                    data.append('data', JSON.stringify(data_all))
+                    //create fetch with headers basic auth and body
+                    let response = await fetch('http://localhost/ilham/server/api/tambah_produk', {
+                        method: 'POST',
+                        headers: {
+                            // 'Content-Type': 'application/json',
+                            'Authorization': 'Basic ' + btoa('Kicap_karan:bb10c6d9f01ec0cb16726b59e36c2f73')
+                        },
+                        body: data
+                    })
+
+                    //create let variable response = await response.json()
+                    let response_json = await response.json()
+                    console.log(response_json)
+                } catch (err) {
+                    console.log(err)
+                }
+
+
+            }
+        }
+
+        
+
+
     </script>
 </body>
 

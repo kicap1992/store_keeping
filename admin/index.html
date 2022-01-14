@@ -1,464 +1,183 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Halaman Utama Admin</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta name="description" content="HexaBit Bootstrap 4x Admin Template">
-    <meta name="author" content="WrapTheme, www.thememakker.com">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halaman Login</title>
+  <link rel="stylesheet" href="template_assets/vendor/toastr/toastr.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <!-- VENDOR CSS -->
-    <link rel="stylesheet" href="template_assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="template_assets/vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="template_assets/vendor/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css">
-    <!-- <link rel="stylesheet" href="template_assets/vendor/chartist/css/chartist.min.css"> -->
-    <!-- <link rel="stylesheet" href="template_assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css"> -->
-    <link rel="stylesheet" href="template_assets/vendor/toastr/toastr.min.css">
-    <!-- <link rel="stylesheet" href="template_assets/vendor/morrisjs/morris.css" /> -->
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif
+    }
 
-    <link rel="stylesheet" href="assets/dist/css/lightbox.min.css">
+    body {
+      background: #ecf0f3
+    }
 
-    <link rel="stylesheet" href="template_assets/vendor/sweetalert/sweetalert.css">
 
-    <!-- MAIN CSS -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/color_skins.css">
+    .wrapper {
+      max-width: 350px;
+      min-height: 350px;
+      margin: 200px auto;
+      padding: 40px 30px 30px 30px;
+      background-color: #ecf0f3;
+      border-radius: 15px;
+      box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff
+    }
+
+    .logo {
+      width: 80px;
+      margin: auto
+    }
+
+    .logo img {
+      width: 100%;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0px 0px 3px #5f5f5f, 0px 0px 0px 5px #ecf0f3, 8px 8px 15px #a7aaa7, -8px -8px 15px #fff
+    }
+
+    .wrapper .name {
+      font-weight: 600;
+      font-size: 1.4rem;
+      letter-spacing: 1.3px;
+      padding-left: 10px;
+      color: #555
+    }
+
+    .wrapper .form-field input {
+      width: 100%;
+      display: block;
+      border: none;
+      outline: none;
+      background: none;
+      font-size: 1.2rem;
+      color: #666;
+      padding: 10px 15px 10px 10px
+    }
+
+    .wrapper .form-field {
+      padding-left: 10px;
+      margin-bottom: 20px;
+      border-radius: 20px;
+      box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff
+    }
+
+    .wrapper .form-field .fas {
+      color: #555
+    }
+
+    .wrapper .btn {
+      box-shadow: none;
+      width: 100%;
+      height: 40px;
+      background-color: #03A9F4;
+      color: #fff;
+      border-radius: 25px;
+      box-shadow: 3px 3px 3px #b1b1b1, -3px -3px 3px #fff;
+      letter-spacing: 1.3px
+    }
+
+    .wrapper .btn:hover {
+      background-color: #039BE5
+    }
+
+    .wrapper a {
+      text-decoration: none;
+      font-size: 0.8rem;
+      color: #03A9F4
+    }
+
+    .wrapper a:hover {
+      color: #039BE5
+    }
+
+    @media(max-width: 380px) {
+      .wrapper {
+        margin: 30px 20px;
+        padding: 40px 15px 15px 15px
+      }
+    }
+  </style>
 </head>
 
-<body class="theme-cyan">
-
-    <!-- Page Loader -->
-    <div class="page-loader-wrapper">
-        <div class="loader">
-            <div class="m-t-30"><img src="template_assets/images/icon-light.svg" width="48" height="48" alt="HexaBit">
-            </div>
-            <p>Loading...</p>
-        </div>
+<body>
+  <div class="wrapper">
+    <!-- <div class="logo"> <img
+        src="https://www.freepnglogos.com/uploads/twitter-logo-png/twitter-bird-symbols-png-logo-0.png" alt=""> </div> -->
+    <div class="text-center mt-4 name">
+      <center>Login</center>
     </div>
-    <!-- Overlay For Sidebars -->
-    <div class="overlay"></div>
-
-    <div id="wrapper">
-
-        <nav class="navbar navbar-fixed-top">
-            <div class="container-fluid">
-
-                <div class="navbar-left">
-                    <div class="navbar-btn">
-                        <a href="index.html"><img src="template_assets/images/icon-light.svg" alt="HexaBit Logo"
-                                class="img-fluid logo"></a>
-                        <button type="button" class="btn-toggle-offcanvas"><i
-                                class="lnr lnr-menu fa fa-bars"></i></button>
-                    </div>
-                    <a href="javascript:void(0);" class="icon-menu btn-toggle-fullwidth"><i
-                            class="fa fa-arrow-left"></i></a>
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown dropdown-animated scale-right">
-                            <a href="javascript:void(0);" class="dropdown-toggle icon-menu" data-toggle="dropdown"><i
-                                    class="icon-grid"></i></a>
-                            <ul class="dropdown-menu menu-icon app_menu">
-                                <li>
-                                    <a class="#">
-                                        <i class="icon-envelope"></i>
-                                        <span>Halaman Penjualan</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="#">
-                                        <i class="icon-bubbles"></i>
-                                        <span>Laporan </span>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </li>
-
-                    </ul>
-                </div>
-
-                <div class="navbar-right">
-                    <!-- <form id="navbar-search" class="navbar-form search-form">
-                        <input value="" class="form-control" placeholder="Search here..." type="text">
-                        <button type="button" class="btn btn-default"><i class="icon-magnifier"></i></button>
-                    </form> -->
-
-                    <div id="navbar-menu">
-                        <ul class="nav navbar-nav">
-
-                            <li><a href="page-login.html" class="icon-menu"><i class="icon-power"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-
-        <div id="left-sidebar" class="sidebar">
-            <div class="navbar-brand">
-                <a href="index.html"><img src="template_assets/images/icon-light.svg" alt="HexaBit Logo"
-                        class="img-fluid logo"><span>Kicap Karan</span></a>
-                <button type="button" class="btn-toggle-offcanvas btn btn-sm btn-default float-right"><i
-                        class="lnr lnr-menu fa fa-chevron-circle-left"></i></button>
-            </div>
-            <div class="sidebar-scroll">
-                <div class="user-account">
-                    <div class="user_div">
-                        <img src="template_assets/images/user.png" class="user-photo" alt="User Profile Picture">
-                    </div>
-                    <div class="dropdown">
-                        <span>Welcome,</span>
-                        <a href="javascript:void(0);" class="dropdown-toggle user-name"
-                            data-toggle="dropdown"><strong>Christy Wert</strong></a>
-                        <ul class="dropdown-menu dropdown-menu-right account">
-                            <li><a href="page-profile.html"><i class="icon-user"></i>My Profile</a></li>
-                            <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
-                            <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li>
-                            <li class="divider"></li>
-                            <li><a href="page-login.html"><i class="icon-power"></i>Logout</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <nav id="left-sidebar-nav" class="sidebar-nav">
-                    <ul id="main-menu" class="metismenu">
-                        <li class="active"><a href="index.html"><i class="icon-basket-loaded"></i><span>Halaman
-                                    Penjualan</span></a></li>
-                        <li><a href="penambahan_produk.html"><i class="fa fa-edit"></i><span>Produk Baru</span></a></li>
-                        <li><a href="list_produk.html"><i class=" icon-list"></i><span>List Produk</span></a></li>
-                        <li><a href="laporan.html"><i class="icon-book-open"></i><span>Log Laporan</span></a></li>
-
-
-
-
-                    </ul>
-                </nav>
-            </div>
-        </div>
-
-        <div id="main-content">
-            <div class="block-header">
-                <div class="row clearfix">
-                    <div class="col-md-6 col-sm-12">
-                        <h2>Halaman Penjualan</h2>
-                    </div>
-                    <div class="col-md-6 col-sm-12 text-right">
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
-                            <li class="breadcrumb-item active">Halaman Penjualan</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container-fluid">
-                <!-- SINI MAIN NYA -->
-
-                <div class="row clearfix">
-                    <div class="col-lg-3 col-md-12"></div>
-
-                    <div class="col-lg-6 col-md-12">
-                        <div class="card">
-                            <div class="body">
-                                <label>Form Pencarian Barang</label>
-                                <input type="text" class="form-control" placeholder="Masukkan Nama atau Kode Barang"
-                                    id="input_pencarian_barang">
-                                <br>
-                                <div class="text-center"><button class="btn btn-primary text-center"
-                                        onclick="cari()">Cari</button></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-12"></div>
-                </div>
-
-                <div class="row clearfix div_pencarian" style="display: none;">
-
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="card">
-                            <div class="header">
-                                <h2>Hasil Pencarian</h2>
-
-                            </div>
-                            <div class="body">
-                                <div class="table-responsive">
-                                    <table class="table table-hover js-basic-example dataTable table-custom mb-0">
-                                        <thead class="thead-dark">
-                                            <tr>
-                                                <th>Kode Barang</th>
-                                                <th>Nama</th>
-                                                <th>Stok</th>
-                                                <th>Aksi</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>A4537</td>
-                                                <td>Adidas Merah</td>
-                                                <td>12</td>
-                                                <td>
-                                                    <button class="btn btn-sm round btn-outline-primary"
-                                                        data-toggle="modal" data-target="#exampleModal"><span
-                                                            class="sr-only"></span><i
-                                                            class="fa fa-shopping-cart"></i></button>
-                                                    &nbsp;
-                                                    <a class="example-image-link" href="template_assets/images/baju/contoh_baju.jpg" data-lightbox="example-1">
-                                                        <button class="btn btn-sm round btn-outline-success">
-                                                            <span class="sr-only"></span>
-                                                            <i class="fa fa-file-image-o"></i>
-                                                        </button>
-                                                    </a>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>A4564</td>
-                                                <td>Adidas Putih</td>
-                                                <td>10</td>
-                                                <td>
-                                                    <button class="btn btn-sm round btn-outline-primary"
-                                                        data-toggle="modal" data-target="#exampleModal"><span
-                                                            class="sr-only"></span><i
-                                                            class="fa fa-shopping-cart"></i></button>
-                                                    &nbsp;
-                                                    <a class="example-image-link" href="template_assets/images/baju/contoh_baju.jpg" data-lightbox="example-1">
-                                                        <button class="btn btn-sm round btn-outline-success">
-                                                            <span class="sr-only"></span>
-                                                            <i class="fa fa-file-image-o"></i>
-                                                        </button>
-                                                    </a>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>A4536</td>
-                                                <td>Adidas Hijau</td>
-                                                <td>8</td>
-                                                <td>
-                                                    <button class="btn btn-sm round btn-outline-primary"
-                                                        data-toggle="modal" data-target="#exampleModal"><span
-                                                            class="sr-only"></span><i
-                                                            class="fa fa-shopping-cart"></i></button>
-                                                    &nbsp;
-                                                    <a class="example-image-link" href="template_assets/images/baju/contoh_baju.jpg" data-lightbox="example-1">
-                                                        <button class="btn btn-sm round btn-outline-success">
-                                                            <span class="sr-only"></span>
-                                                            <i class="fa fa-file-image-o"></i>
-                                                        </button>
-                                                    </a>
-                                                </td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row clearfix div_cart_list" style="display: none;">
-
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="card">
-                            <div class="header">
-                                <h2>Cart List</h2>
-
-                            </div>
-                            <div class="body">
-                                <div class="table-responsive">
-                                    <table class="table table-hover js-basic-example dataTable table-custom mb-0">
-                                        <thead class="thead-dark">
-                                            <tr>
-                                                <th>Kode Barang</th>
-                                                <th>Nama</th>
-                                                <th>Total Pembelian</th>
-                                                <th>Harga</th>
-                                                <th>Aksi</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>A4537</td>
-                                                <td>Adidas Merah</td>
-                                                <td><input type="text" class="form-control" value="12"
-                                                        style="width: 100px;"></td>
-                                                <td>Rp. 50,000</td>
-                                                <td>
-                                                    <button class="btn btn-sm round btn-outline-danger"><span
-                                                            class="sr-only"></span><i class="fa fa-trash"></i></button>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>A4564</td>
-                                                <td>Adidas Putih</td>
-                                                <td><input type="text" class="form-control" value="12"
-                                                        style="width: 100px;"></td>
-                                                <td>Rp. 50,000</td>
-                                                <td>
-                                                    <button class="btn btn-sm round btn-outline-danger"><span
-                                                            class="sr-only"></span><i class="fa fa-trash"></i></button>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>A4536</td>
-                                                <td>Adidas Hijau</td>
-                                                <td><input type="text" class="form-control" value="12"
-                                                        style="width: 100px;"></td>
-                                                <td>Rp. 50,000</td>
-                                                <td>
-                                                    <button class="btn btn-sm round btn-outline-danger"><span
-                                                            class="sr-only"></span><i class="fa fa-trash"></i></button>
-                                                </td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-1"></div>
-
-                                    <div class="col-lg-6 col-md-10">
-                                        <div class="form-group">
-                                            <label>Total Pembayaran</label>
-                                            <input type="text" class="form-control" value="Rp. 150,000" disabled>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Jumlah Uang Pembayaran</label>
-                                            <input type="text" class="form-control"
-                                                placeholder="Masukkan Jumlah Uang Pembayaran">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Baki </label>
-                                            <input type="text" class="form-control" value="Rp. 20,000" disabled>
-                                        </div>
-
-                                        <div class="form-group text-center">
-                                            <button class="btn btn-sm btn-primary">Masukkan Data</button>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-3 col-md-1"></div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
+    <div class="p-3 mt-3">
+      <br>
+      <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span> <input type="text"
+          name="username" id="username" placeholder="Username"> </div>
+      <div class="form-field d-flex align-items-center"> <span class="fas fa-key"></span> <input type="password"
+          name="password" id="password" placeholder="Password"> </div> <button class="btn mt-3"
+        onclick="login()">Login</button>
     </div>
+    <!-- <div class="text-center fs-6"> <a href="#">Forget password?</a> or <a href="#">Sign up</a> </div> -->
+  </div>
+  <script src="assets/bundles/libscripts.bundle.js"></script>
+  <script src="template_assets/vendor/toastr/toastr.js"></script>
+  <script>
+    async function login() {
+      // create let variable username and password
+      let username = document.getElementById('username').value
+      let password = document.getElementById('password').value
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Hasil Pencarian</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group text-center">
-                        <img src="template_assets/images/baju/contoh_baju.jpg" alt="" width="150px" height="200px">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Kode</label>
-                        <input type="text" class="form-control" value="A4567" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Nama</label>
-                        <input type="text" class="form-control" value="Adidas Merah" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Harga</label>
-                        <input type="text" class="form-control" value="Rp 50,000" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Jumlah Belian</label>
-                        <input type="text" class="form-control" placeholder="Masukkan Jumlah Belian">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Total</label>
-                        <input type="text" class="form-control" placeholder="Rp.50.000" disabled>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onclick="masukkan_ke_cart()">Masukkan Ke List
-                        Pembelian</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+      //if username and password is empty
+      if (username == '' || password == '') {
+        // alert('Username and Password is required')
+        toastr.error('Username and Password is required')
+        //focus on username
+        document.getElementById('username').focus()
+      } else {
+        //create try catch
+        try {
 
-    <!-- Javascript -->
-    <script src="assets/bundles/libscripts.bundle.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-    <script src="assets/bundles/vendorscripts.bundle.js"></script>
-
-    <!-- <script src="assets/bundles/chartist.bundle.js"></script> -->
-    <script src="template_assets/vendor/toastr/toastr.js"></script>
-    <!--script src="assets/bundles/morrisscripts.bundle.js"></script-->
-    <!-- Morris Plugin Js -->
-
-    <script src="assets/bundles/mainscripts.bundle.js"></script>
-    <script src="assets/js/index.js"></script>
-    <script src="assets/dist/js/lightbox.min.js"></script>
-    <script src="template_assets/vendor/sweetalert/sweetalert.js"></script>
-
-    <script>
-        function cari() {
-            //create var input = document.getElementById('input_pencarian_barang');
-            var input = $('#input_pencarian_barang').val();
-            // if input is empty then toastr error on top right ("Masukkan Nama atau Kode Barang") focus to input else toastr success ("Cari Berhasil")
-            if (input == "") {
-                toastr.error('Masukkan Nama atau Kode Barang', 'Error', {
-                    timeOut: 5000,
-                    "closeButton": true,
-                    "debug": false,
-                    "newestOnTop": true,
-                    "progressBar": true,
-                    "positionClass": "toast-top-right",
-                    "preventDuplicates": true,
-                    "onclick": null,
-                    "showDuration": "300",
-                    "hideDuration": "1000",
-                    "extendedTimeOut": "1000",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut",
-                    "tapToDismiss": false
-                });
-                $('#input_pencarian_barang').focus();
-            } else {
-                // show div id=div_pencarian with fadeIn
-                $('.div_pencarian').fadeIn(1000);
+          //create fetch
+          let response = await fetch(`http://localhost/ilham/server/api/login_user?username=${username}&password=${password}`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Basic ' + btoa('Kicap_karan:bb10c6d9f01ec0cb16726b59e36c2f73')
             }
+          })
+          //create json
+          let json = await response.json()
+          //if response status is 200 then console.log("ok") else if response status is 400 then console.log("username or password is wrong")
+          if (response.status == 200) {
+            localStorage.setItem('no_user', json.data.no_user)
+            localStorage.setItem('username', json.data.username)
+            localStorage.setItem('password', json.data.password)
+            // console.log
+            window.location.replace('admin_index.html')
+           
+          } else if (response.status == 400) {
 
-
+            toastr.error('Username or Password is wrong')
+            //focus on username
+            document.getElementById('username').focus()
+          }
+         
+        } catch (error) {
+          //if error
+          console.log(error)
         }
+      }
 
-        function masukkan_ke_cart() {
-            // hide div id=div_pencarian with fadeOut
-            $('.div_pencarian').fadeOut(1000);
-            // show div id=div_cart_list with fadeIn
-            $('.div_cart_list').fadeIn(1000);
-            //close modal
-            $('.modal').modal('hide');
-        }
-    </script>
+
+    }
+  </script>
 </body>
 
 </html>
