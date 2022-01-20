@@ -28,6 +28,12 @@
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/color_skins.css">
+    <style>
+        /* put swal text on center */
+        .swal-text {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body class="theme-cyan">
@@ -50,7 +56,7 @@
 
                 <div class="navbar-left">
                     <div class="navbar-btn">
-                        <a href="index.html"><img src="template_assets/images/icon-light.svg" alt="HexaBit Logo"
+                        <a href="admin_index.html"><img src="template_assets/images/icon-light.svg" alt="HexaBit Logo"
                                 class="img-fluid logo"></a>
                         <button type="button" class="btn-toggle-offcanvas"><i
                                 class="lnr lnr-menu fa fa-bars"></i></button>
@@ -100,7 +106,7 @@
 
         <div id="left-sidebar" class="sidebar">
             <div class="navbar-brand">
-                <a href="index.html"><img src="template_assets/images/icon-light.svg" alt="HexaBit Logo"
+                <a href="admin_index.html"><img src="template_assets/images/icon-light.svg" alt="HexaBit Logo"
                         class="img-fluid logo"><span>Kicap Karan</span></a>
                 <button type="button" class="btn-toggle-offcanvas btn btn-sm btn-default float-right"><i
                         class="lnr lnr-menu fa fa-chevron-circle-left"></i></button>
@@ -126,7 +132,7 @@
                 </div>
                 <nav id="left-sidebar-nav" class="sidebar-nav">
                     <ul id="main-menu" class="metismenu">
-                        <li><a href="index.html"><i class=" icon-basket-loaded"></i><span>Halaman
+                        <li><a href="admin_index.html"><i class=" icon-basket-loaded"></i><span>Halaman
                                     Penjualan</span></a></li>
                         <li><a href="penambahan_produk.html"><i class="fa fa-edit"></i><span>Produk Baru</span></a></li>
                         <li class="active"><a href="list_produk.html"><i class=" icon-list"></i><span>List
@@ -149,7 +155,7 @@
                     </div>
                     <div class="col-md-6 col-sm-12 text-right">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="admin_index.html"><i class="icon-home"></i></a></li>
                             <li class="breadcrumb-item active">Halaman List Produk</li>
                         </ul>
                     </div>
@@ -175,9 +181,10 @@
                                 </ul>
                             </div>
                             <div class="body">
-                                <div class="table-responsive">
+                                <div class="table-responsive" style="overflow-x: auto;">
                                     <table
-                                        class="table table-bordered table-hover js-basic-example dataTable table-custom">
+                                        class="table table-bordered table-hover js-basic-example dataTable table-custom"
+                                        id="table_produk">
                                         <thead>
                                             <tr>
                                                 <th>Kode</th>
@@ -188,100 +195,7 @@
                                             </tr>
                                         </thead>
 
-                                        <tbody>
-                                            <tr>
-                                                <td>A4567</td>
-                                                <td>Adidas Merah</td>
-                                                <td>15</td>
-                                                <td>Rp. 50,000</td>
-                                                <td>
-                                                    <button class="btn btn-sm round btn-outline-primary"
-                                                        data-toggle="modal" data-target="#exampleModal"
-                                                        title="Tambah Stok Produk">
-                                                        <span class="sr-only"></span>
-                                                        <i class="fa fa-edit"></i>
-                                                    </button>
-                                                    &nbsp;
-                                                    <a class="example-image-link"
-                                                        href="template_assets/images/baju/contoh_baju.jpg"
-                                                        data-lightbox="example-1">
-                                                        <button class="btn btn-sm round btn-outline-success"
-                                                            title="Lihat Foto Produk">
-                                                            <span class="sr-only"></span>
-                                                            <i class="fa fa-file-image-o"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button class="btn btn-sm round btn-outline-info"
-                                                        data-toggle="modal" data-target="#exampleModal1"
-                                                        title="Lihat Laporan Produk">
-                                                        <span class="sr-only"></span>
-                                                        <i class="fa fa-list"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
 
-                                            <tr>
-                                                <td>A5678</td>
-                                                <td>Adidas Putih</td>
-                                                <td>15</td>
-                                                <td>Rp. 50,000</td>
-                                                <td>
-                                                    <button class="btn btn-sm round btn-outline-primary"
-                                                        data-toggle="modal" data-target="#exampleModal"
-                                                        title="Tambah Stok Produk">
-                                                        <span class="sr-only"></span>
-                                                        <i class="fa fa-edit"></i>
-                                                    </button>
-                                                    &nbsp;
-                                                    <a class="example-image-link"
-                                                        href="template_assets/images/baju/contoh_baju.jpg"
-                                                        data-lightbox="example-1">
-                                                        <button class="btn btn-sm round btn-outline-success"
-                                                            title="Lihat Foto Produk">
-                                                            <span class="sr-only"></span>
-                                                            <i class="fa fa-file-image-o"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button class="btn btn-sm round btn-outline-info"
-                                                        data-toggle="modal" data-target="#exampleModal1"
-                                                        title="Lihat Laporan Produk">
-                                                        <span class="sr-only"></span>
-                                                        <i class="fa fa-list"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>A6789</td>
-                                                <td>Adidas Hijau</td>
-                                                <td>15</td>
-                                                <td>Rp. 50,000</td>
-                                                <td>
-                                                    <button class="btn btn-sm round btn-outline-primary"
-                                                        data-toggle="modal" data-target="#exampleModal"
-                                                        title="Tambah Stok Produk">
-                                                        <span class="sr-only"></span>
-                                                        <i class="fa fa-edit"></i>
-                                                    </button>
-                                                    &nbsp;
-                                                    <a class="example-image-link"
-                                                        href="template_assets/images/baju/contoh_baju.jpg"
-                                                        data-lightbox="example-1">
-                                                        <button class="btn btn-sm round btn-outline-success"
-                                                            title="Lihat Foto Produk">
-                                                            <span class="sr-only"></span>
-                                                            <i class="fa fa-file-image-o"></i>
-                                                        </button>
-                                                    </a>
-                                                    <button class="btn btn-sm round btn-outline-info"
-                                                        data-toggle="modal" data-target="#exampleModal1"
-                                                        title="Lihat Laporan Produk">
-                                                        <span class="sr-only"></span>
-                                                        <i class="fa fa-list"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -296,7 +210,7 @@
 
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="modal_tambah_stok" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -308,46 +222,109 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group text-center">
-                        <img src="template_assets/images/baju/contoh_baju.jpg" alt="" width="150px" height="200px">
+                        <img src="template_assets/images/baju/contoh_baju.jpg" id="foto_produk" alt="" width="150px"
+                            height="200px">
                     </div>
                     <div class="form-group">
                         <label for="">Kode</label>
-                        <input type="text" class="form-control" value="A4567" disabled>
+                        <input type="text" class="form-control" value="A4567" id="kode_barang" disabled>
                     </div>
                     <div class="form-group">
                         <label for="">Nama</label>
-                        <input type="text" class="form-control" value="Adidas Merah" disabled>
+                        <input type="text" class="form-control" value="Adidas Merah" id="nama" disabled>
                     </div>
                     <div class="form-group">
                         <label for="">Harga</label>
-                        <input type="text" class="form-control" value="Rp 50,000" disabled>
+                        <input type="text" class="form-control" value="Rp 50,000" id="harga" disabled>
                     </div>
                     <div class="form-group">
                         <label for="">Jumlah Stok Sekarang</label>
-                        <input type="text" class="form-control" placeholder="15" disabled>
+                        <input type="text" class="form-control" placeholder="15" id="jumlah" disabled>
                     </div>
                     <div class="form-group">
                         <label for="">Penambahan Stok</label>
-                        <input type="text" class="form-control" placeholder="Masukkan Jumlah Penambahan Stok">
+                        <input type="text" class="form-control" placeholder="Masukkan Jumlah Penambahan Stok"
+                            id="input_jumlah_penambahan_stok" onkeypress="return isNumberKey(event)" maxlength="4"
+                            oninput="penambahan_stok(value)">
                     </div>
                     <div class="form-group">
                         <label for="">Harga Pembelian Penambahan Stok</label>
-                        <input type="text" class="form-control" placeholder="Masukkan Harga Pembelian Penambahan Stok">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rp.</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Masukkan Harga Pembelian Stok"
+                                id="harga_pembelian_stok" maxlength="10">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="">Total Stok</label>
-                        <input type="text" class="form-control" value="25" disabled>
+                        <label for="">Total Stok Terbaru</label>
+                        <input type="text" class="form-control" value="25" id="total_stok" disabled>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onclick="tambah_stok()">Tambah Stok</button>
+                    <button type="button" class="btn btn-primary" id="button_tambah_stok" onclick="tambah_stok()">Tambah
+                        Stok</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="modal_edit_detail_produk" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Detail Produk</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group text-center">
+                        <img src="template_assets/images/baju/contoh_baju.jpg" id="foto_produk_detail" alt=""
+                            width="150px" height="200px">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Foto Baru <i style="font-size: 10px;">(Kosongkan Jika Tidak Ingin Menganti
+                                Foto)</i></label>
+                        <input type="file" class="form-control" id="foto">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Kode</label>
+                        <input type="text" class="form-control" value="A4567" id="kode_barang_detail" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Nama</label>
+                        <input type="text" class="form-control" value="Adidas Merah" id="nama_detail">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Harga</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rp.</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Masukkan Harga Jual Produk"
+                                id="harga_detail" maxlength="10">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Jumlah Stok Sekarang</label>
+                        <input type="text" class="form-control" placeholder="15" id="jumlah_detail" disabled>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="button_edit_detail">Edit Detail Produk</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal_cek_laporan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -359,31 +336,45 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group text-center">
-                        <img src="template_assets/images/baju/contoh_baju.jpg" alt="" width="150px" height="200px">
+                        <img src="template_assets/images/baju/contoh_baju.jpg" alt="" id="foto_laporan" width="150px"
+                            height="200px">
                     </div>
                     <div class="form-group">
                         <label for="">Kode</label>
-                        <input type="text" class="form-control" value="A4567" disabled>
+                        <input type="text" class="form-control" value="A4567" id="kode_laporan" disabled>
                     </div>
                     <div class="form-group">
                         <label for="">Nama</label>
-                        <input type="text" class="form-control" value="Adidas Merah" disabled>
+                        <input type="text" class="form-control" value="Adidas Merah" id="nama_laporan" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Harga Jual</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rp.</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Masukkan Harga Pembelian Stok"
+                                id="harga_laporan" maxlength="10" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Jumlah Stok Sekarang</label>
+                        <input type="text" class="form-control" placeholder="15" id="jumlah_laporan" disabled>
                     </div>
                     <hr>
                     <div class="form-group">
                         <div class="table-responsive">
-                            <table class="table table-bordered table-hover js-basic-example dataTable table-custom">
+                            <table class="table table-bordered table-hover js-basic-example dataTable table-custom"
+                                id="table_laporan">
                                 <thead>
                                     <tr>
                                         <th>Tanggal</th>
                                         <th>Status</th>
-                                        <th>Stok Sebelumnya</th>
-                                        <th>Stok Terkini</th>
                                         <th>Keterangan</th>
                                     </tr>
                                 </thead>
 
-                                <tbody>
+                                <!-- <tbody>
                                     <tr>
                                         <td>Rabu | 21-10-2021</td>
                                         <td>Penjualan</td>
@@ -420,7 +411,7 @@
                                             Kembalian : Rp. 25,000
                                         </td>
                                     </tr>
-                                </tbody>
+                                </tbody> -->
                             </table>
                         </div>
                     </div>
@@ -451,15 +442,443 @@
     <script src="assets/bundles/datatablescripts.bundle.js"></script>
     <script src="template_assets/vendor/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
     <script src="template_assets/vendor/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
+    <script src="assets/block/jquery.blockUI.js"></script>
+    <script src="main.js"></script>
 
     <script>
-        //datatable class table
-        $(document).ready(function () {
-            $('.table').DataTable();
-        });
+        document.getElementById("foto").onchange = function () {
+            let foto_produk = document.getElementById('foto').files[0];
+            check_file(foto_produk)
+        }
+        var stok_terkini;
+        //cretae a datatable on class table and get data from ajax
+        function datatables_produk() {
+            $('#table_produk').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    "url": "http://localhost/ilham/server/",
+                    "type": "POST",
+                    data: { proses: 'get_produk' },
+                },
+                "columnDefs": [
+                    {
+                        "targets": [4],
+                        "orderable": false,
+                    },
+                ],
+            });
+        }
 
+        datatables_produk()
         //sudden changes delete it
-        
+
+        async function cek_stok_produk(id) {
+            console.log(id);
+            document.getElementById('input_jumlah_penambahan_stok').value = '';
+            document.getElementById('harga_pembelian_stok').value = '';
+            //create try catch
+            try {
+                //create fetch get
+                let response = await fetch('http://localhost/ilham/server/api/get_produk?id=' + id, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': 'Basic ' + btoa('Kicap_karan:bb10c6d9f01ec0cb16726b59e36c2f73')
+                    },
+                });
+
+                //create json
+                let data = await response.json();
+                console.log(data);
+
+                // img id foto_produk src=data.data.foto                
+                document.getElementById('foto_produk').src = `http://localhost/ilham/server/img/${data.data.no_barang}/${data.data.foto}`;
+                document.getElementById('kode_barang').value = data.data.kode_barang;
+                document.getElementById('nama').value = data.data.nama;
+                document.getElementById('harga').value = data.data.harga_jual;
+                document.getElementById('jumlah').value = data.data.jumlah;
+                document.getElementById('total_stok').value = data.data.jumlah;
+                stok_terkini = data.data.jumlah
+
+                //button id=button_tambah_stok onclick=tambah_stok(data.data.no_barang)
+                document.getElementById('button_tambah_stok').onclick = function () {
+                    tambah_stok(data.data.no_barang, data.data.jumlah);
+                }
+
+
+                // open modal id exampleModal
+                $('#modal_tambah_stok').modal('show');
+
+                let elem = document.getElementById("harga_pembelian_stok");
+                elem.addEventListener("keydown", function (event) {
+                    var key = event.which;
+                    if ((key < 48 || key > 57) && key != 8) event.preventDefault();
+                });
+
+                elem.addEventListener("keyup", function (event) {
+                    var value = this.value.replace(/,/g, "");
+                    this.dataset.currentValue = parseInt(value);
+                    var caret = value.length - 1;
+                    while ((caret - 3) > -1) {
+                        caret -= 3;
+                        value = value.split('');
+                        value.splice(caret + 1, 0, ",");
+                        value = value.join('');
+                    }
+                    this.value = value;
+                });
+            }
+            catch (err) {
+                console.log(err);
+            }
+
+        }
+
+        function penambahan_stok(val) {
+            let jumlah = parseInt(val) + parseInt(stok_terkini)
+            //input id total_stok value=jumlah
+            document.getElementById('total_stok').value = jumlah;
+            console.log(jumlah)
+        }
+
+        async function tambah_stok(id, jumlah_sebelumnya) {
+            // check if input id=input_jumlah_penambahan_stok is empty then toastr warning "Jumlah Penambahan Stok Tidak Boleh Kosong" and focus on id=input_jumlah_penambahan_stok else if input id=harga_pembelian_stok is empty then toastr warning "Harga Pembelian Tidak Boleh Kosong" and focus on id=harga_pembelian_stok else console.log("ok")
+            if (document.getElementById('input_jumlah_penambahan_stok').value == '') {
+                toastr.warning('Jumlah Penambahan Stok Tidak Boleh Kosong');
+                document.getElementById('input_jumlah_penambahan_stok').focus();
+            } else if (document.getElementById('harga_pembelian_stok').value == '') {
+                toastr.warning('Harga Pembelian Tidak Boleh Kosong');
+                document.getElementById('harga_pembelian_stok').focus();
+            } else {
+                console.log(id)
+                console.log(jumlah_sebelumnya)
+
+                //create swal info text "Yakin ingin menambahkan stok?", with 2 button Ya and Tidak, if Ya then console.log("ok") else if Tidak then console.log("cancel")
+                swal({
+                    title: "Info",
+                    text: "Yakin Menambah Stok Produk?",
+                    icon: "info",
+                    buttons: {
+                        cancel: {
+                            text: "Tidak",
+                            visible: true,
+                            closeModal: true,
+                        },
+                        ok: {
+                            text: "Ya",
+                            closeModal: true,
+                            visible: true,
+                            value: true,
+                            className: "bg-success",
+                            closeModal: true,
+                            closeOnClick: true
+                        }
+                    }
+                }).then(async (value) => {
+                    if (value) {
+                        //create try catch
+                        try {
+                            sedang_proses()
+                            //create fetch post
+                            // create let variable data and set it to object
+                            let data_to_db = {
+                                penambahan_stok: document.getElementById('input_jumlah_penambahan_stok').value,
+                                harga_pembelian_stok: document.getElementById('harga_pembelian_stok').value,
+                                total_stok: document.getElementById('total_stok').value,
+                                jumlah_stok_sebelumnya: jumlah_sebelumnya,
+                                bertanggungjawab: localStorage.getItem('no_user')
+                            }
+                            let response = await fetch('http://localhost/ilham/server/api/tambah_stok', {
+                                method: 'PUT',
+                                headers: {
+                                    'Authorization': 'Basic ' + btoa('Kicap_karan:bb10c6d9f01ec0cb16726b59e36c2f73'),
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    id: id,
+                                    data: data_to_db
+                                })
+                            });
+
+                            //create json
+                            let data = await response.json();
+                            console.log(data);
+
+                            //if response status == 200 then swal success "Berhasil Menambahkan Stok" and close modal
+                            if (response.status == 200) {
+                                $.unblockUI();
+                                swal({
+                                    title: "Berhasil Menambahkan Stok",
+                                    text: (data.stat == 'success') ? "Laporan Berhasil Terkirim Ke Server Online" : "Laporan Gagal Terkirim Ke Server Online",
+                                    icon: "success",
+                                    button: "OK",
+                                });
+                                $('#modal_tambah_stok').modal('hide');
+                                // destroy table id=table_produk
+                                $('#table_produk').DataTable().destroy();
+                                datatables_produk()
+                            } else {
+                                $.unblockUI();
+                                swal({
+                                    icon: 'error',
+                                    title: 'Gagal',
+                                    text: 'Silahkan Coba Lagi',
+                                    timer: 2000,
+                                    button: false
+                                })
+                            }
+                        }
+                        catch (err) {
+                            $.unblockUI();
+                            console.log(err);
+                            swal({
+                                icon: 'error',
+                                title: 'Gagal',
+                                text: 'Silahkan Coba Lagi',
+                                timer: 2000,
+                                button: false
+                            })
+                        }
+                    }
+                })
+
+
+            }
+        }
+
+        async function cek_detail_barang(id) {
+            document.getElementById('foto').value=null
+            try {
+                sedang_proses()
+                //create fetch get
+                let response = await fetch('http://localhost/ilham/server/api/get_produk?id=' + id, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': 'Basic ' + btoa('Kicap_karan:bb10c6d9f01ec0cb16726b59e36c2f73')
+                    },
+                });
+
+                //create json
+                let data = await response.json();
+                console.log(data);
+
+                // img id foto_produk src=data.data.foto                
+                document.getElementById('foto_produk_detail').src = `http://localhost/ilham/server/img/${data.data.no_barang}/${data.data.foto}`;
+                document.getElementById('kode_barang_detail').value = data.data.kode_barang;
+                document.getElementById('nama_detail').value = data.data.nama;
+                document.getElementById('harga_detail').value = data.data.harga_jual;
+                document.getElementById('jumlah_detail').value = data.data.jumlah;
+
+                document.getElementById('button_edit_detail').onclick = function () {
+                    edit_detail(data.data.no_barang, `${data.data.nama}`, `${data.data.harga_jual}`, `${data.data.foto}`);
+                }
+
+                let elem = [document.getElementById("harga_detail")];
+                input_numbers_comma(elem)
+                
+                $.unblockUI();
+                // open modal id exampleModal
+                $('#modal_edit_detail_produk').modal('show');
+
+
+            }
+            catch (err) {
+                $.unblockUI();
+                swal({
+                    icon: 'error',
+                    title: 'Gagal',
+                    text: 'Silahkan Coba Lagi',
+                    timer: 2000,
+                    button: false
+                })
+            }
+            // console.log(id)
+            //show modal id modal_edit_detail_produk
+        }
+
+        async function edit_detail(id, nama_lama, harga_lama, foto_lama) {
+            let foto_produk = document.getElementById('foto').files[0];
+            let nama = document.getElementById('nama_detail').value;
+            let harga = document.getElementById('harga_detail').value;
+
+            //if nama = '' or null or undefined then toastr.warning "Nama Produk Tidak Boleh Kosong" focus id nama_detail, else if harga = '' or null or undefined then toastr.warning "Harga Tidak Boleh Kosong" focus id harga_detail, else if nama == nama_lama or harga == harga_lama then toastr.warning "Tidak Ada Perubahan" focus id nama_detail else console.log("ok")
+            if (nama == '' || nama == null || nama == undefined) {
+                toastr.warning('Nama Produk Tidak Boleh Kosong');
+                document.getElementById('nama_detail').focus();
+            } else if (harga == '' || harga == null || harga == undefined) {
+                toastr.warning('Harga Tidak Boleh Kosong');
+                document.getElementById('harga_detail').focus();
+            } else if (nama == nama_lama && harga == harga_lama && foto_produk == null) {
+                toastr.warning('Tidak Ada Perubahan');
+                document.getElementById('nama_detail').focus();
+            } else {
+                //create swal info text "Yakin ingin mengubah detail produk?", with 2 button Ya and Tidak, if Ya then console.log("ok") else if Tidak then console.log("cancel")
+                swal({
+                    title: "Info",
+                    text: "Yakin Mengubah Detail Produk?",
+                    icon: "info",
+                    buttons: {
+                        cancel: {
+                            text: "Tidak",
+                            visible: true,
+                            closeModal: true,
+                        },
+                        ok: {
+                            text: "Ya",
+                            closeModal: true,
+                            visible: true,
+                            value: true,
+                            className: "bg-success",
+                            closeModal: true,
+                            closeOnClick: true
+                        }
+                    }
+                }).then(async (value) => {
+                    if (value) {
+                        sedang_proses()
+                        //create let variable data_form = new FormData()
+                        let data_form = new FormData();
+                        data_form.append('id', id);
+                        data_form.append('foto', (foto_produk == null || foto_produk == undefined || foto_produk == "") ? null : foto_produk);
+                        data_form.append('cek_foto', (foto_produk == null || foto_produk == undefined || foto_produk == "") ? 'tiada' : 'ada');
+                        let data_to_db = {
+                            nama_lama: nama_lama,
+                            nama_baru: nama,
+                            harga_lama: harga_lama,
+                            harga_baru: harga,
+                            foto_lama: foto_lama,
+                            foto_baru: (foto_produk == null || foto_produk == undefined || foto_produk == "") ? foto_lama : foto_produk.name,
+                            bertanggungjawab: localStorage.getItem('no_user')
+                        }
+                        data_form.append('data', JSON.stringify(data_to_db));
+
+                        //create try catch
+                        try {
+                            //create fetch post
+                            // create let variable data and set it to object
+
+                            let response = await fetch('http://localhost/ilham/server/api/edit_detail_produk', {
+                                method: 'POST',
+                                headers: {
+                                    'Authorization': 'Basic ' + btoa('Kicap_karan:bb10c6d9f01ec0cb16726b59e36c2f73'),
+                                    // 'Content-Type': 'application/json'
+                                },
+                                body: data_form
+                            });
+
+                            //create json
+                            let data = await response.json();
+                            console.log(data);
+
+                            //if response status == 200 then swal success "Berhasil Mengubah Detail Produk" and close modal
+                            if (response.status == 200) {
+                                $.unblockUI()
+                                swal({
+                                    title: "Berhasil Mengubah Detail Produk",
+                                    text: (data.stat == 'success') ? "Laporan Berhasil Terkirim Ke Server Online" : "Laporan Gagal Terkirim Ke Server Online",
+                                    icon: "success",
+                                    button: "OK",
+                                });
+                                $('#modal_edit_detail_produk').modal('hide');
+                                // destroy table id=table_produk
+                                $('#table_produk').DataTable().destroy();
+                                datatables_produk()
+                            } else {
+                                $.unblockUI()
+                                swal({
+                                    title: "Gagal Mengubah Detail Produk",
+                                    icon: "Silahkan Coba Lagi",
+                                    button: "OK",
+                                });
+                            }
+
+                        }
+                        catch (err) {
+                            console.log(err);
+                            $.unblockUI()
+                            swal({
+                                title: "Gagal Mengubah Detail Produk",
+                                icon: "Silahkan Coba Lagi",
+                                button: "OK",
+                            });
+                        }
+                    }
+                })
+            }
+
+        }
+
+        async function cek_laporan(id) {
+            console.log(id)
+            //open modal id modal_cek_laporan
+            try {
+                sedang_proses()
+                //create fetch get
+                let response = await fetch('http://localhost/ilham/server/api/get_produk?id=' + id, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': 'Basic ' + btoa('Kicap_karan:bb10c6d9f01ec0cb16726b59e36c2f73')
+                    },
+                });
+
+                //create json
+                let data = await response.json();
+                console.log(data);
+
+                // img id foto_produk src=data.data.foto                
+                document.getElementById('foto_laporan').src = `http://localhost/ilham/server/img/${data.data.no_barang}/${data.data.foto}`;
+                document.getElementById('kode_laporan').value = data.data.kode_barang;
+                document.getElementById('nama_laporan').value = data.data.nama;
+                document.getElementById('harga_laporan').value = data.data.harga_jual;
+                document.getElementById('jumlah_laporan').value = data.data.jumlah;
+
+                //destroy table id=table_laporan
+                await $('#table_laporan').DataTable().destroy();
+                // call function datatables_laporan(data.data.no_barang)
+                await datatables_laporan(data.data.no_barang)
+
+                // open modal id exampleModal
+                $('#modal_cek_laporan').modal('show');
+
+                $.unblockUI();
+            }
+            catch (err) {
+                console.log(err)
+                $.unblockUI();
+                swal({
+                    icon: 'error',
+                    title: 'Gagal',
+                    text: 'Silahkan Coba Lagi',
+                    timer: 2000,
+                    button: false
+                })
+            }
+
+            // $('#modal_cek_laporan').modal('show');
+        }
+
+        function datatables_laporan(id) {
+            $('#table_laporan').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    "url": "http://localhost/ilham/server/",
+                    "type": "POST",
+                    data: {
+                        proses: 'get_produk_laporan',
+                        id: id
+                    },
+                },
+                "columnDefs": [
+                    {
+                        "targets": [2],
+                        "orderable": false,
+                    },
+                ],
+                "order": [[ 0, "desc" ]]
+            });
+        }
+
     </script>
 </body>
 

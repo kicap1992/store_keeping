@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="template_assets/vendor/toastr/toastr.min.css">
     <!-- <link rel="stylesheet" href="template_assets/vendor/morrisjs/morris.css" /> -->
 
+    <link rel="stylesheet" href="template_assets/vendor/jquery-datatable/dataTables.bootstrap4.min.css">
+
     <link rel="stylesheet" href="assets/dist/css/lightbox.min.css">
 
     <link rel="stylesheet" href="template_assets/vendor/sweetalert/sweetalert.css">
@@ -48,7 +50,7 @@
 
                 <div class="navbar-left">
                     <div class="navbar-btn">
-                        <a href="index.html"><img src="template_assets/images/icon-light.svg" alt="HexaBit Logo"
+                        <a href="admin_index.html"><img src="template_assets/images/icon-light.svg" alt="HexaBit Logo"
                                 class="img-fluid logo"></a>
                         <button type="button" class="btn-toggle-offcanvas"><i
                                 class="lnr lnr-menu fa fa-bars"></i></button>
@@ -98,7 +100,7 @@
 
         <div id="left-sidebar" class="sidebar">
             <div class="navbar-brand">
-                <a href="index.html"><img src="template_assets/images/icon-light.svg" alt="HexaBit Logo"
+                <a href="admin_index.html"><img src="template_assets/images/icon-light.svg" alt="HexaBit Logo"
                         class="img-fluid logo"><span>Kicap Karan</span></a>
                 <button type="button" class="btn-toggle-offcanvas btn btn-sm btn-default float-right"><i
                         class="lnr lnr-menu fa fa-chevron-circle-left"></i></button>
@@ -123,7 +125,7 @@
                 </div>
                 <nav id="left-sidebar-nav" class="sidebar-nav">
                     <ul id="main-menu" class="metismenu">
-                        <li class="active"><a href="index.html"><i class="icon-basket-loaded"></i><span>Halaman
+                        <li class="active"><a href="admin_index.html"><i class="icon-basket-loaded"></i><span>Halaman
                                     Penjualan</span></a></li>
                         <li><a href="penambahan_produk.html"><i class="fa fa-edit"></i><span>Produk Baru</span></a></li>
                         <li><a href="list_produk.html"><i class=" icon-list"></i><span>List Produk</span></a></li>
@@ -145,7 +147,7 @@
                     </div>
                     <div class="col-md-6 col-sm-12 text-right">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="admin_index.html"><i class="icon-home"></i></a></li>
                             <li class="breadcrumb-item active">Halaman Penjualan</li>
                         </ul>
                     </div>
@@ -183,78 +185,25 @@
 
                             </div>
                             <div class="body">
-                                <div class="table-responsive">
-                                    <table class="table table-hover js-basic-example dataTable table-custom mb-0">
-                                        <thead class="thead-dark">
+                                <div class="table-responsive" id="div_tabel_produk">
+                                    <table
+                                        class="table table-bordered table-hover js-basic-example dataTable table-custom"
+                                        id="tabel_produk" width="100%">
+                                        <thead class="thead-dark" width="100%">
                                             <tr>
                                                 <th>Kode Barang</th>
                                                 <th>Nama</th>
+                                                <th>Harga Jual</th>
                                                 <th>Stok</th>
                                                 <th>Aksi</th>
 
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>A4537</td>
-                                                <td>Adidas Merah</td>
-                                                <td>12</td>
-                                                <td>
-                                                    <button class="btn btn-sm round btn-outline-primary"
-                                                        data-toggle="modal" data-target="#exampleModal"><span
-                                                            class="sr-only"></span><i
-                                                            class="fa fa-shopping-cart"></i></button>
-                                                    &nbsp;
-                                                    <a class="example-image-link" href="template_assets/images/baju/contoh_baju.jpg" data-lightbox="example-1">
-                                                        <button class="btn btn-sm round btn-outline-success">
-                                                            <span class="sr-only"></span>
-                                                            <i class="fa fa-file-image-o"></i>
-                                                        </button>
-                                                    </a>
-                                                </td>
-                                            </tr>
 
-                                            <tr>
-                                                <td>A4564</td>
-                                                <td>Adidas Putih</td>
-                                                <td>10</td>
-                                                <td>
-                                                    <button class="btn btn-sm round btn-outline-primary"
-                                                        data-toggle="modal" data-target="#exampleModal"><span
-                                                            class="sr-only"></span><i
-                                                            class="fa fa-shopping-cart"></i></button>
-                                                    &nbsp;
-                                                    <a class="example-image-link" href="template_assets/images/baju/contoh_baju.jpg" data-lightbox="example-1">
-                                                        <button class="btn btn-sm round btn-outline-success">
-                                                            <span class="sr-only"></span>
-                                                            <i class="fa fa-file-image-o"></i>
-                                                        </button>
-                                                    </a>
-                                                </td>
-                                            </tr>
 
-                                            <tr>
-                                                <td>A4536</td>
-                                                <td>Adidas Hijau</td>
-                                                <td>8</td>
-                                                <td>
-                                                    <button class="btn btn-sm round btn-outline-primary"
-                                                        data-toggle="modal" data-target="#exampleModal"><span
-                                                            class="sr-only"></span><i
-                                                            class="fa fa-shopping-cart"></i></button>
-                                                    &nbsp;
-                                                    <a class="example-image-link" href="template_assets/images/baju/contoh_baju.jpg" data-lightbox="example-1">
-                                                        <button class="btn btn-sm round btn-outline-success">
-                                                            <span class="sr-only"></span>
-                                                            <i class="fa fa-file-image-o"></i>
-                                                        </button>
-                                                    </a>
-                                                </td>
-                                            </tr>
-
-                                        </tbody>
                                     </table>
                                 </div>
+                                <div id="div_ket_tiada_produk"></div>
 
                             </div>
                         </div>
@@ -271,55 +220,21 @@
                             </div>
                             <div class="body">
                                 <div class="table-responsive">
-                                    <table class="table table-hover js-basic-example dataTable table-custom mb-0">
-                                        <thead class="thead-dark">
+                                    <table
+                                        class="table table-bordered table-hover js-basic-example dataTable table-custom"
+                                        id="tabel_cart" width="100%">
+                                        <thead class="thead-dark" width="100%">
                                             <tr>
                                                 <th>Kode Barang</th>
                                                 <th>Nama</th>
                                                 <th>Total Pembelian</th>
                                                 <th>Harga</th>
+                                                <th>Total</th>
                                                 <th>Aksi</th>
 
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>A4537</td>
-                                                <td>Adidas Merah</td>
-                                                <td><input type="text" class="form-control" value="12"
-                                                        style="width: 100px;"></td>
-                                                <td>Rp. 50,000</td>
-                                                <td>
-                                                    <button class="btn btn-sm round btn-outline-danger"><span
-                                                            class="sr-only"></span><i class="fa fa-trash"></i></button>
-                                                </td>
-                                            </tr>
 
-                                            <tr>
-                                                <td>A4564</td>
-                                                <td>Adidas Putih</td>
-                                                <td><input type="text" class="form-control" value="12"
-                                                        style="width: 100px;"></td>
-                                                <td>Rp. 50,000</td>
-                                                <td>
-                                                    <button class="btn btn-sm round btn-outline-danger"><span
-                                                            class="sr-only"></span><i class="fa fa-trash"></i></button>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>A4536</td>
-                                                <td>Adidas Hijau</td>
-                                                <td><input type="text" class="form-control" value="12"
-                                                        style="width: 100px;"></td>
-                                                <td>Rp. 50,000</td>
-                                                <td>
-                                                    <button class="btn btn-sm round btn-outline-danger"><span
-                                                            class="sr-only"></span><i class="fa fa-trash"></i></button>
-                                                </td>
-                                            </tr>
-
-                                        </tbody>
                                     </table>
                                 </div>
                                 <div class="row">
@@ -328,20 +243,31 @@
                                     <div class="col-lg-6 col-md-10">
                                         <div class="form-group">
                                             <label>Total Pembayaran</label>
-                                            <input type="text" class="form-control" value="Rp. 150,000" disabled>
+                                            <input type="text" class="form-control" value="Rp. 150,000"
+                                                id="total_pembayaran_cart" disabled>
                                         </div>
                                         <div class="form-group">
                                             <label>Jumlah Uang Pembayaran</label>
-                                            <input type="text" class="form-control"
-                                                placeholder="Masukkan Jumlah Uang Pembayaran">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Rp.</span>
+                                                </div>
+                                                <input type="text" class="form-control"
+                                                    placeholder="Masukkan Jumlah Uang Pembayaran"
+                                                    id="jumlah_uang_pembayaran_cart" maxlength="10"
+                                                    oninput="cek_baki_cart(this.value)">
+                                            </div>
+
                                         </div>
                                         <div class="form-group">
-                                            <label>Baki </label>
-                                            <input type="text" class="form-control" value="Rp. 20,000" disabled>
+                                            <label>Kembalian </label>
+                                            <input type="text" class="form-control" value=""
+                                                placeholder="Masukkan Jumlah Uang Pembayaran" id="baki_cart" disabled>
                                         </div>
 
                                         <div class="form-group text-center">
-                                            <button class="btn btn-sm btn-primary">Masukkan Data</button>
+                                            <button class="btn btn-sm btn-info" id="button_masukkan_data_cart" disabled
+                                                style="cursor: not-allowed;">Masukkan Jumlah Uang Pembayaran</button>
                                         </div>
                                     </div>
 
@@ -358,7 +284,7 @@
 
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="modal_pembelian" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -370,31 +296,50 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group text-center">
-                        <img src="template_assets/images/baju/contoh_baju.jpg" alt="" width="150px" height="200px">
+                        <img src="template_assets/images/baju/contoh_baju.jpg" id="foto_produk" alt="" width="150px"
+                            height="200px">
                     </div>
                     <div class="form-group">
                         <label for="">Kode</label>
-                        <input type="text" class="form-control" value="A4567" disabled>
+                        <input type="text" class="form-control" id="kode_barang" value="A4567" disabled>
                     </div>
                     <div class="form-group">
                         <label for="">Nama</label>
-                        <input type="text" class="form-control" value="Adidas Merah" disabled>
+                        <input type="text" class="form-control" id="nama" value="Adidas Merah" disabled>
                     </div>
                     <div class="form-group">
                         <label for="">Harga</label>
-                        <input type="text" class="form-control" value="Rp 50,000" disabled>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rp.</span>
+                            </div>
+                            <input type="text" class="form-control" id="harga" maxlength="10" disabled>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="">Jumlah Belian</label>
-                        <input type="text" class="form-control" placeholder="Masukkan Jumlah Belian">
+                        <label for="">Stok</label>
+                        <input type="text" class="form-control" id="jumlah" value="" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Jumlah Pembelian</label>
+                        <input type="text" class="form-control" placeholder="Masukkan Jumlah Belian"
+                            onkeypress="return isNumberKey(event)" maxlength="4" id="jumlah_pembelian">
                     </div>
                     <div class="form-group">
                         <label for="">Total</label>
-                        <input type="text" class="form-control" placeholder="Rp.50.000" disabled>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rp.</span>
+                            </div>
+                            <input type="text" class="form-control" id="total" placeholder="Masukkan Jumlah Pembelian"
+                                maxlength="10" disabled>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onclick="masukkan_ke_cart()">Masukkan Ke List
+                    <button type="button" class="btn btn-primary" onclick="masukkan_ke_cart()"
+                        id="button_masukkan_ke_cart" disabled style="cursor:not-allowed"
+                        title="Isi Jumlah Pembelian Terlebih Dahulu">Masukkan Ke List
                         Pembelian</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
@@ -416,10 +361,16 @@
     <script src="assets/js/index.js"></script>
     <script src="assets/dist/js/lightbox.min.js"></script>
     <script src="template_assets/vendor/sweetalert/sweetalert.js"></script>
+    <script src="assets/bundles/datatablescripts.bundle.js"></script>
+    <script src="template_assets/vendor/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
+    <script src="template_assets/vendor/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
+    <script src="assets/block/jquery.blockUI.js"></script>
     <script src="main.js"></script>
 
     <script>
-        function cari() {
+        // $('#tabel_produk').DataTable()
+        var array_cart = []
+        async function cari() {
             //create var input = document.getElementById('input_pencarian_barang');
             var input = $('#input_pencarian_barang').val();
             // if input is empty then toastr error on top right ("Masukkan Nama atau Kode Barang") focus to input else toastr success ("Cari Berhasil")
@@ -444,20 +395,541 @@
                 });
                 $('#input_pencarian_barang').focus();
             } else {
-                // show div id=div_pencarian with fadeIn
-                $('.div_pencarian').fadeIn(1000);
+                //create try catch
+                try {
+                    sedang_proses()
+                    //create fetch get with header basic auth
+                    const response = await fetch('http://localhost/ilham/server/api/cari_produk?id=' + input, {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': 'Basic ' + btoa('Kicap_karan:bb10c6d9f01ec0cb16726b59e36c2f73')
+                        }
+                    });
+                    //create json
+                    const json = await response.json();
+                    //if response status is 200 then console.log("ok") else console.log("ko")
+                    if (response.status == 200) {
+                        $.unblockUI();
+                        // console.log(json);
+                        // console.log(json.data.length);
+                        if (json.data.length > 0) {
+                            let data_produk = json.data;
+
+                            $('#tabel_produk').DataTable().destroy();
+                            //create datatable table id="tabel_produk" with data=data_produk
+                            $('#tabel_produk').DataTable({
+                                data: data_produk,
+                                columns: [{
+                                    data: 'kode_barang'
+                                },
+                                {
+                                    data: 'nama'
+                                },
+                                    null,
+                                {
+                                    data: 'jumlah'
+                                },
+
+                                ],
+                                destroy: true,
+                                "columnDefs": [{
+                                    "targets": [0],
+                                    // "visible": false,
+                                    "searchable": false
+                                }],
+                                "order": [
+                                    [0, 'asc']
+                                ],
+                                "aoColumnDefs": [
+                                    {
+                                        "aTargets": [4],
+                                        "mData": null,
+                                        "mRender": function (data, type, row, meta) {
+                                            return `<button class="btn btn-sm round btn-outline-primary"
+                                                        onclick="open_modal_pembelian(${data.no_barang})" ${(data.jumlah == 0) ? `style="cursor:not-allowed" disabled` : ""}><span
+                                                            class="sr-only" ></span><i
+                                                            class="fa fa-shopping-cart"></i></button>
+                                                    &nbsp;
+                                                    <a class="example-image-link"
+                                                        href="http://localhost/ilham/server/img/${data.no_barang}/${data.foto}"
+                                                        data-lightbox="example-${data.no_barang}">
+                                                        <button class="btn btn-sm round btn-outline-success">
+                                                            <span class="sr-only"></span>
+                                                            <i class="fa fa-file-image-o"></i>
+                                                        </button>
+                                                    </a>`;
+                                        }
+                                    }, {
+                                        "aTargets": [2],
+                                        "mData": "harga_jual",
+                                        "mRender": function (data, type, full) {
+                                            return 'Rp. ' + data;
+                                        }
+                                    }
+                                ]
+
+                            });
+                            $("#div_tabel_produk").show();
+                            $("#div_ket_tiada_produk").html("");
+                            // hide div ket_tiada_produk
+                            $("#div_ket_tiada_produk").hide();
+                            $('.div_pencarian').hide();
+                            $('.div_pencarian').fadeIn(1000);
+
+                        } else {
+                            $('#tabel_produk').DataTable().destroy();
+                            //hide id div_tabel_produk
+                            $("#div_tabel_produk").hide();
+                            $("#div_ket_tiada_produk").html("<center><label>Tidak Ada Produk Dengan Kode Dan Nama <b><i>'" + input + "'<//i></b></label></center>");
+                            // show div ket_tiada_produk
+                            $("#div_ket_tiada_produk").show();
+                            $('.div_pencarian').hide();
+                            $('.div_pencarian').fadeIn(1000);
+                        }
+                    } else {
+                        $.unblockUI();
+                        swal({
+                            icon: 'error',
+                            title: 'Gagal',
+                            text: 'Silahkan Coba Lagi',
+                            timer: 2000,
+                            button: false
+                        })
+                    }
+
+
+                }
+                catch (err) {
+                    $.unblockUI();
+                    swal({
+                        icon: 'error',
+                        title: 'Gagal',
+                        text: 'Silahkan Coba Lagi',
+                        timer: 2000,
+                        button: false
+                    })
+                }
             }
+
+            // // show div id=div_pencarian with fadeIn
+            // $('.div_pencarian').fadeIn(1000);
 
 
         }
 
-        function masukkan_ke_cart() {
+        async function open_modal_pembelian(id) {
+            document.getElementById('jumlah_pembelian').value = null;
+            // console.log(id)
+            try {
+                sedang_proses()
+                //create fetch get
+                let response = await fetch('http://localhost/ilham/server/api/get_produk?id=' + id, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': 'Basic ' + btoa('Kicap_karan:bb10c6d9f01ec0cb16726b59e36c2f73')
+                    },
+                });
+
+                //create json
+                let data = await response.json();
+                // console.log(data);
+
+                // img id foto_produk src=data.data.foto                
+                document.getElementById('foto_produk').src = `http://localhost/ilham/server/img/${data.data.no_barang}/${data.data.foto}`;
+                document.getElementById('kode_barang').value = data.data.kode_barang;
+                document.getElementById('nama').value = data.data.nama;
+                document.getElementById('harga').value = data.data.harga_jual;
+                document.getElementById('jumlah').value = data.data.jumlah;
+
+                // input id="jumlah_pembelian" onchange="cek_jumlah_pembelian()"
+                document.getElementById('jumlah_pembelian').oninput = function () {
+                    cek_jumlah_pembelian(data.data.jumlah, data.data.no_barang, `${data.data.harga_jual}`, `${data.data.nama}`, `${data.data.kode_barang}`);
+                }
+
+
+                $.unblockUI();
+                // open modal id exampleModal
+                $('#modal_pembelian').modal('show');
+                //focus id jumlah_pembelian
+                // document.getElementById("jumlah_pembelian").focus();
+
+
+            }
+            catch (err) {
+                $.unblockUI();
+                swal({
+                    icon: 'error',
+                    title: 'Gagal',
+                    text: 'Silahkan Coba Lagi',
+                    timer: 2000,
+                    button: false
+                })
+            }
+
+            //show modal id modal_pembelian
+            // $('#modal_pembelian').modal('show');
+        }
+
+        function cek_jumlah_pembelian(jumlah, id, harga_jual, nama, kode_barang) {
+            let jumlah_pembelian = document.getElementById('jumlah_pembelian').value;
+            let stok_on_delete = parseInt(jumlah) - parseInt(jumlah_pembelian);
+            let total_harga = parseInt(jumlah_pembelian) * parseInt(remove_comma(harga_jual));
+            id_produk = id
+            // console.log(harga_jual);
+            // console.log(id_produk);
+
+            if (stok_on_delete < 0) {
+                toastr.error('Stok Tidak Mencukupi', 'Error', {
+                    "positionClass": "toast-top-center",
+                    "closeButton": true,
+                    "progressBar": true,
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut",
+                    "timeOut": 4000
+                });
+                //button id="button_masukkan_ke_cart" disabled and title="Stok Tidak Mencukupi" and cursor="not-allowed" , html = "Stok Tidak Mencukupi" ,class="btn btn-danger" 
+                document.getElementById('button_masukkan_ke_cart').disabled = true;
+                document.getElementById('button_masukkan_ke_cart').title = 'Stok Tidak Mencukupi';
+                document.getElementById('button_masukkan_ke_cart').style.cursor = 'not-allowed';
+                document.getElementById('button_masukkan_ke_cart').innerHTML = 'Stok Tidak Mencukupi';
+                document.getElementById('button_masukkan_ke_cart').className = 'btn btn-danger';
+                document.getElementById('total').value = null;
+
+                $("#button_masukkan_ke_cart").hide();
+                $("#button_masukkan_ke_cart").fadeIn(1000);
+
+
+                //focus id jumlah_pembelian
+                document.getElementById('jumlah_pembelian').focus();
+            } else {
+                //button id="button_masukkan_ke_cart" disabled=false , title="Sila Klik Untuk Masukkan Ke Cart" , cursor="pointer", attr onclick="masukkan_ke_cart('${id}')"
+                document.getElementById('button_masukkan_ke_cart').disabled = false;
+                document.getElementById('button_masukkan_ke_cart').title = 'Sila Klik Untuk Masukkan Ke Cart';
+                document.getElementById('button_masukkan_ke_cart').innerHTML = 'Masukkan Ke List Pembelian';
+                document.getElementById('button_masukkan_ke_cart').className = 'btn btn-primary';
+                document.getElementById('button_masukkan_ke_cart').style.cursor = 'pointer';
+                document.getElementById('total').value = 'Rp. ' + add_comma(total_harga);
+                $("#button_masukkan_ke_cart").attr({
+                    onclick: `masukkan_ke_cart(${id},'${harga_jual}','${nama}','${kode_barang}')`
+                })
+                $("#button_masukkan_ke_cart").hide();
+                $("#button_masukkan_ke_cart").fadeIn(1000);
+            }
+
+            // console.log(jumlah)
+            // console.log(jumlah_pembelian)
+
+        }
+
+        async function masukkan_ke_cart(id, harga_jual, nama, kode_barang) {
+            let jumlah_pembelian = document.getElementById('jumlah_pembelian').value;
+            let total = parseInt(jumlah_pembelian) * parseInt(remove_comma(harga_jual));
+            // console.log(id)
+            // console.log(kode_barang);
+            // console.log(nama);
+            // console.log(jumlah_pembelian);
+            // console.log(harga_jual);
+            let data = {
+                id: id,
+                kode_barang: kode_barang,
+                jumlah: jumlah_pembelian,
+                harga_jual: harga_jual,
+                nama: nama,
+                total: total
+            }
+
+            if (array_cart.length > 0) {
+                //loop array_cart and search in field id_produk if id_produk is same with id_produk from data then do nothing else push data to array_cart
+                let is_exist = false;
+                for (let i = 0; i < array_cart.length; i++) {
+                    if (array_cart[i].id == data.id) {
+                        is_exist = true;
+                        break;
+                    }
+
+                }
+
+                if (is_exist == false) {
+                    array_cart.push(data);
+                } else {
+                    toastr.error('Produk Sudah Ada Dalam List Pembelian', 'Error', {
+                        "positionClass": "toast-top-center",
+                        "closeButton": true,
+                        "progressBar": true,
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut",
+                        "timeOut": 4000
+                    });
+                }
+
+            } else {
+                array_cart.push(data);
+            }
+
+            //push to  array_cart
+            // array_cart.push(data);
+            // console.log(array_cart)
+
+            $('#tabel_cart').DataTable().destroy();
+            tabel_cart();
+            // create datatable table id="tabel_produk" with data=data_produk
+
+
+
             // hide div id=div_pencarian with fadeOut
             $('.div_pencarian').fadeOut(1000);
             // show div id=div_cart_list with fadeIn
             $('.div_cart_list').fadeIn(1000);
             //close modal
             $('.modal').modal('hide');
+
+            input_numbers_comma([document.getElementById('jumlah_uang_pembayaran_cart')]);
+        }
+
+        function edit_total_pembelian(id, total_baru, total_lama, harga_jual) {
+            // console.log(id)
+            // console.log(total_baru)
+            // console.log(total_lama)
+            // console.log(harga_jual)
+
+            if (total_baru <= 0) {
+                toastr.error('Jumlah Pembelian Tidak Boleh Kurang Dari 1', 'Error', {
+                    "positionClass": "toast-top-center",
+                    "closeButton": true,
+                    "progressBar": true,
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut",
+                    "timeOut": 4000
+                });
+                document.getElementById('input_total_pembelian_tabel_' + id).value = total_lama;
+            } else {
+                let total = parseInt(total_baru) * parseInt(remove_comma(harga_jual));
+                // search at array_cart in field id if id is same with id then field jumlah = total_baru and field total = total
+                for (let i = 0; i < array_cart.length; i++) {
+                    if (array_cart[i].id == id) {
+                        array_cart[i].jumlah = total_baru;
+                        array_cart[i].total = total;
+                        break;
+                    }
+                }
+                tabel_cart()
+
+            }
+        }
+
+        function hapus_dari_cart(id) {
+            // console.log(id)
+            //swal icon="warning" text="Yakin Hapus Produk Dari Cart Pelanggan?" with 2 buttons "Ya" and "Tidak"
+            swal({
+                title: "",
+                text: "Yakin Hapus Produk Dari Cart Pelanggan?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                if (willDelete) {
+                    //search at array_cart in field id if id is same with id then delete data from array_cart
+                    for (let i = 0; i < array_cart.length; i++) {
+                        if (array_cart[i].id == id) {
+                            array_cart.splice(i, 1);
+                            break;
+                        }
+                    }
+
+                    //destroy datatable table id="tabel_cart"
+                    $('#tabel_cart').DataTable().destroy();
+                    tabel_cart()
+
+                }
+            });
+
+            // console.log(array_cart.length)
+
+
+        }
+
+        async function tabel_cart(data = array_cart) {
+            await $('#tabel_cart').DataTable({
+                data: data,
+                columns: [{
+                    data: 'kode_barang'
+                },
+                {
+                    data: 'nama'
+                },
+                    null,
+                    null,
+                    null,
+
+                ],
+                destroy: true,
+                "columnDefs": [{
+                    "targets": [0],
+                    // "visible": false,
+                    "searchable": false
+                }],
+                "order": [
+                    [0, 'asc']
+                ],
+                paging: false,
+                "aoColumnDefs": [
+                    {
+                        "aTargets": [5],
+                        "mData": null,
+                        "mRender": function (data, type, row, meta) {
+                            return `<button class="btn btn-sm round btn-outline-danger" onclick="hapus_dari_cart(${data.id})"><span class="sr-only"></span><i class="fa fa-trash"></i></button>`;
+                        }
+                    }, {
+                        "aTargets": [2],
+                        "mData": null,
+                        "mRender": function (data, type, row, meta) {
+                            return `<input type="text" class="form-control" value="${data.jumlah}" style="width: 100px;" onkeypress="return isNumberKey(event)" id="input_total_pembelian_tabel_${data.id}" maxlength="3" onchange="edit_total_pembelian(${data.id},this.value,${data.jumlah},'${data.harga_jual}')">`;
+                        }
+                    }, {
+                        "aTargets": [3],
+                        "mData": 'harga_jual',
+                        "mRender": function (data, type, full) {
+                            return `Rp . ${data}`;
+                        }
+                    }, {
+                        "aTargets": [4],
+                        "mData": 'total',
+                        "mRender": function (data, type, full) {
+                            return `Rp . ${add_comma(data)}`;
+                        }
+                    }
+                ]
+
+            });
+
+
+            if (array_cart.length > 0) {
+
+                let total_pembayaran = await 0;
+
+                //loop array_cart and add total to total_pembayaran
+                for (let i = 0; i < array_cart.length; i++) {
+                    total_pembayaran += await parseInt(array_cart[i].total);
+                }
+                // console.log(total_pembayaran)
+                document.getElementById('total_pembayaran_cart').value = await `Rp . ${add_comma(total_pembayaran)}`;
+
+                //
+                cek_baki_cart();
+            } else {
+                $('#tabel_cart').DataTable().destroy();
+                // hide div id=div_cart_list 
+                $('.div_cart_list').fadeOut(1000);
+
+                // show div id=div_pencarian with fadeIn
+                // $('.div_pencarian').fadeIn(1000);
+            }
+
+
+
+        }
+
+        function cek_baki_cart() {
+            let pembayaran = remove_comma(document.getElementById('jumlah_uang_pembayaran_cart').value);
+            let total = document.getElementById('total_pembayaran_cart').value;
+            // remove all the non-digit characters from total
+            total = total.replace(/[^0-9]/g, '');
+            let baki = parseInt(remove_comma(pembayaran)) - parseInt(total);
+            // console.log(baki)
+            if (pembayaran == '') {
+                document.getElementById('button_masukkan_data_cart').innerHTML = `Masukkan Jumlah Uang Pembayaran`;
+                document.getElementById('button_masukkan_data_cart').className = `btn btn-sm btn-primary`;
+                document.getElementById('button_masukkan_data_cart').disabled = true;
+                document.getElementById('button_masukkan_data_cart').style = `cursor:not-allowed;`;
+                document.getElementById('button_masukkan_data_cart').onclick = null;
+            }
+            else if (baki < 0) {
+                document.getElementById('baki_cart').value = `Uang Pembayaran Masih Kurang`;
+                // button id button_masukkan_data_cart html="Uang Pembayaran Masih Kurang", class="btn btn-sm btn-danger" ,  disabled="true", sytle="curson:not-allowed;" , onclick="null"
+                document.getElementById('button_masukkan_data_cart').innerHTML = `Uang Pembayaran Masih Kurang`;
+                document.getElementById('button_masukkan_data_cart').className = `btn btn-sm btn-danger`;
+                document.getElementById('button_masukkan_data_cart').disabled = true;
+                document.getElementById('button_masukkan_data_cart').style = `cursor:not-allowed;`;
+                document.getElementById('button_masukkan_data_cart').onclick = null;
+            } else {
+                document.getElementById('baki_cart').value = `Rp . ${add_comma(baki)}`;
+                // button id button_masukkan_data_cart html="Masukkan Data", class="btn btn-sm btn-primary" ,  disabled="false", sytle="curson:pointer;" , onclick="masukkan_pembyaran_cart()"
+                document.getElementById('button_masukkan_data_cart').innerHTML = `Masukkan Data`;
+                document.getElementById('button_masukkan_data_cart').className = `btn btn-sm btn-primary`;
+                document.getElementById('button_masukkan_data_cart').disabled = false;
+                document.getElementById('button_masukkan_data_cart').style = `cursor:pointer;`;
+                document.getElementById('button_masukkan_data_cart').onclick = function () {
+                    masukkan_data_cart();
+                }
+            }
+
+        }
+
+        async function masukkan_data_cart() {
+            let total_belanja = document.getElementById('total_pembayaran_cart').value;
+            total_belanja = add_comma(total_belanja.replace(/[^0-9]/g, ''));
+            let pembayaran = document.getElementById('jumlah_uang_pembayaran_cart').value;
+            let baki = document.getElementById('baki_cart').value;
+            baki = add_comma(baki.replace(/[^0-9]/g, ''));
+            // console.log(total_belanja)
+            // console.log(pembayaran)
+            // console.log(baki)
+            let data = {
+
+                status: "Penjualan Produk",
+                total_belanja: total_belanja,
+                pembayaran: pembayaran,
+                baki: baki,
+                ket: JSON.stringify(array_cart)
+            }
+            data = { data: data }
+
+            //create try catch
+            try {
+                sedang_proses()
+                //create fetch post with basic auth
+                let response = await fetch('http://localhost/ilham/server/api/penjualan', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Kicap_karan:bb10c6d9f01ec0cb16726b59e36c2f73'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                //create json
+                let json = await response.json();
+
+                //create if response status is 200
+                if (response.status == 200) {
+                    //create alert
+                    $.unblockUI()
+                    swal({
+                        title: "Berhasil Mengubah Detail Produk",
+                        text: (json.stat == 'success') ? "Laporan Berhasil Terkirim Ke Server Online" : "Laporan Gagal Terkirim Ke Server Online",
+                        icon: "success",
+                        button: "OK",
+                    });
+                    $('#modal_edit_detail_produk').modal('hide');
+                    // destroy table id=table_produk
+                    $('#table_cart').DataTable().destroy();
+                    $('#table_produk').DataTable().destroy();
+                    array_cart = [];
+                    tabel_cart();
+                    // div class div_cart_list fadeOut 100
+
+                } else {
+                    console.log('data tidak ada')
+                }
+            } catch (e) {
+                console.log(e)
+            }
         }
     </script>
 </body>

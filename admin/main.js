@@ -61,35 +61,81 @@ function check_file(file) {
   }
 }
 
-const elem =[document.getElementById("harga_jual"),document.getElementById("harga_pembelian_stok")] ;
+const elem = [document.getElementById("harga_jual"), document.getElementById("harga_pembelian_stok")];
 
-for (let i = 0; i < elem.length; i++) {
-  let elem1 = elem[i]
-  elem1.addEventListener("keydown", function (event) {
-    var key = event.which;
-    if ((key < 48 || key > 57) && key != 8) event.preventDefault();
-  });
-  
-  elem1.addEventListener("keyup", function (event) {
-    var value = this.value.replace(/,/g, "");
-    this.dataset.currentValue = parseInt(value);
-    var caret = value.length - 1;
-    while ((caret - 3) > -1) {
-      caret -= 3;
-      value = value.split('');
-      value.splice(caret + 1, 0, ",");
-      value = value.join('');
+
+function input_numbers_comma(elem) {
+  for (let i = 0; i < elem.length; i++) {
+    let elem1 = elem[i]
+    if (elem1) {
+      elem1.addEventListener("keydown", function (event) {
+        var key = event.which;
+        if ((key < 48 || key > 57) && key != 8) event.preventDefault();
+      });
+
+      elem1.addEventListener("keyup", function (event) {
+        var value = this.value.replace(/,/g, "");
+        this.dataset.currentValue = parseInt(value);
+        var caret = value.length - 1;
+        while ((caret - 3) > -1) {
+          caret -= 3;
+          value = value.split('');
+          value.splice(caret + 1, 0, ",");
+          value = value.join('');
+        }
+        this.value = value;
+      });
     }
-    this.value = value;
-  });
-  
-}
 
-function isNumberKey(evt){
+
+  }
+}
+input_numbers_comma(elem)
+
+
+
+function isNumberKey(evt) {
   var charCode = (evt.which) ? evt.which : evt.keyCode
-  if (charCode > 31 && (charCode < 48 || charCode > 57 ))
-      return false;
+  if (charCode > 31 && (charCode < 48 || charCode > 57))
+    return false;
   return true;
   // console.log(evt.key)
 }
 
+function sedang_proses() {
+  $.blockUI({
+    message: "Sedang Diproses",
+    css: {
+      border: 'none',
+      padding: '15px',
+      backgroundColor: '#000',
+      '-webkit-border-radius': '10px',
+      '-moz-border-radius': '10px',
+      opacity: .5,
+      color: '#fff'
+    }
+  });
+}
+
+// sedang_proses()
+
+// create function remove_comma from number
+function remove_comma(no) {
+  //create let variable no = no.replace(/,/g, '')
+  let number = no.replace(/,/g, '')
+  return number
+}
+
+// create function add_comma thousand separator to number
+function add_comma(no) {
+  //create let variable no = no.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  let number = no.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  return number
+}
+
+//function nama bulan berdasarkan angka
+function nama_bulan(no) {
+  let bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
+  return bulan[no - 1]  //return bulan[no - 1]  
+  
+}

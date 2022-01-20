@@ -26,6 +26,12 @@
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/color_skins.css">
+    <style>
+        /* put swal text on center */
+        .swal-text {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body class="theme-cyan">
@@ -48,7 +54,7 @@
 
                 <div class="navbar-left">
                     <div class="navbar-btn">
-                        <a href="index.html"><img src="template_assets/images/icon-light.svg" alt="HexaBit Logo"
+                        <a href="admin_index.html"><img src="template_assets/images/icon-light.svg" alt="HexaBit Logo"
                                 class="img-fluid logo"></a>
                         <button type="button" class="btn-toggle-offcanvas"><i
                                 class="lnr lnr-menu fa fa-bars"></i></button>
@@ -98,7 +104,7 @@
 
         <div id="left-sidebar" class="sidebar">
             <div class="navbar-brand">
-                <a href="index.html"><img src="template_assets/images/icon-light.svg" alt="HexaBit Logo"
+                <a href="admin_index.html"><img src="template_assets/images/icon-light.svg" alt="HexaBit Logo"
                         class="img-fluid logo"><span>Kicap Karan</span></a>
                 <button type="button" class="btn-toggle-offcanvas btn btn-sm btn-default float-right"><i
                         class="lnr lnr-menu fa fa-chevron-circle-left"></i></button>
@@ -124,7 +130,7 @@
                 </div>
                 <nav id="left-sidebar-nav" class="sidebar-nav">
                     <ul id="main-menu" class="metismenu">
-                        <li><a href="index.html"><i class=" icon-basket-loaded"></i><span>Halaman
+                        <li><a href="admin_index.html"><i class=" icon-basket-loaded"></i><span>Halaman
                                     Penjualan</span></a></li>
                         <li class="active"><a href="penambahan_produk.html"><i class="fa fa-edit"></i><span>
                                     Produk Baru</span></a></li>
@@ -147,7 +153,7 @@
                     </div>
                     <div class="col-md-6 col-sm-12 text-right">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="admin_index.html"><i class="icon-home"></i></a></li>
                             <li class="breadcrumb-item active">Halaman Penambahan Produk Baru</li>
                         </ul>
                     </div>
@@ -165,8 +171,8 @@
                             <div class="body">
                                 <div class="form-group">
                                     <label>Foto Produk</label>
-                                    <input type="file" class="form-control" id="foto" placeholder="Masukkan Kode Produk"
-                                        on>
+                                    <input type="file" class="form-control" id="foto"
+                                        placeholder="Masukkan Kode Produk">
                                 </div>
                                 <div class="form-group">
                                     <label>Kode Produk</label>
@@ -242,6 +248,7 @@
     <script src="assets/js/index.js"></script>
     <script src="assets/dist/js/lightbox.min.js"></script>
     <script src="template_assets/vendor/sweetalert/sweetalert.js"></script>
+    <script src="assets/block/jquery.blockUI.js"></script>
     <script src="main.js"></script>
 
     <script>
@@ -281,41 +288,139 @@
             } else {
                 //create let variable data = json all data
                 let data_all = {
-                    kode_produk: kode_produk,
-                    nama_produk: nama_produk,
-                    harga_produk: harga_produk,
-                    jumlah_stok: jumlah_stok,
-                    pembelian_stok: pembelian_stok
+                    foto: foto_produk.name,
+                    kode_barang: kode_produk,
+                    nama: nama_produk,
+                    harga_jual: harga_produk,
+                    jumlah: jumlah_stok,
+                    pembelian_stok: pembelian_stok,
+                    bertanggungjawab: localStorage.getItem('no_user')
                 }
 
-                //create try catch
-                try {
-                    // create let variable data = new FormData()
-                    let data = new FormData()
-                    data.append('foto', foto_produk)
-                    data.append('data', JSON.stringify(data_all))
-                    //create fetch with headers basic auth and body
-                    let response = await fetch('http://localhost/ilham/server/api/tambah_produk', {
-                        method: 'POST',
-                        headers: {
-                            // 'Content-Type': 'application/json',
-                            'Authorization': 'Basic ' + btoa('Kicap_karan:bb10c6d9f01ec0cb16726b59e36c2f73')
-                        },
-                        body: data
-                    })
+                //create swal "Yakin Ingin Menambahkan Produk Baru?" with button ok and cancel
+                swal({
+                    title: "",
+                    text: "Yakin Ingin Menambahkan Produk Baru?",
+                    icon: "info",
+                    buttons: true,
+                    dangerMode: false,
+                }).then( async (willDelete) => {
+                    if (willDelete) {
+                        //create try catch
+                        try {
+                            // sedang_proses()
+                            // create let variable data = new FormData()
+                            let data = new FormData()
+                            data.append('foto', foto_produk)
+                            data.append('data', JSON.stringify(data_all))
+                            //create fetch with headers basic auth and body
+                            let response = await fetch('http://localhost/ilham/server/api/tambah_produk', {
+                                method: 'POST',
+                                headers: {
+                                    // 'Content-Type': 'application/json',
+                                    'Authorization': 'Basic ' + btoa('Kicap_karan:bb10c6d9f01ec0cb16726b59e36c2f73')
+                                },
+                                body: data
+                            })
 
-                    //create let variable response = await response.json()
-                    let response_json = await response.json()
-                    console.log(response_json)
-                } catch (err) {
-                    console.log(err)
-                }
+
+                            // if response status == 200 console.log('ok') else if response status == 400 console.log('gagal') 
+                            if (response.status == 200) {
+                                $.unblockUI();
+                                console.log('ok')
+                                //create let variable response = await response.json()
+                                let response_json = await response.json()
+                                console.log(response_json.stat)
+                                //create swal with title "Sukses" and text "Produk Baru Berhasil Ditambahkan\n Sila Tekan Ok untuk ke halaman 'List Produk'" with ok button that redirect to list_produk.html and cancel button that close swal and do nothing
+                                swal({
+                                    title: "Sukses",
+                                    text: "Produk Baru Berhasil Ditambahkan\n"+(response_json.stat == 'success') ? "Laporan Berhasil Terkirim Ke Server Online": "Laporan Gagal Terkirim Ke Server Online"+"\n Sila Tekan Ok untuk ke halaman 'List Produk'",
+                                    icon: "success",
+                                    buttons: {
+                                        cancel: {
+                                            text: "Tutup",
+                                            visible: true,
+                                            closeModal: true,
+                                        },
+                                        ok: {
+                                            text: "Ok",
+                                            closeModal: true,
+                                            visible: true,
+                                            value: true,
+                                            className: "bg-success",
+                                            closeModal: true,
+                                            closeOnClick: true
+                                        }
+                                    }
+                                }).then((value) => {
+                                    if (value) {
+                                        window.location.href = 'list_produk.html'
+                                    }
+                                })
+
+                                //set all input to empty
+                                document.getElementById('foto').value = null
+                                document.getElementById('kode_barang').value = ''
+                                document.getElementById('nama').value = ''
+                                document.getElementById('harga_jual').value = ''
+                                document.getElementById('jumlah').value = ''
+                                document.getElementById('harga_pembelian_stok').value = ''
+
+                            } else if (response.status == 400) {
+                                $.unblockUI();
+                                //create swal with title 'gagal' and text 'Kode Produk Sudah Ada' with timer 1500 and no ok button
+                                swal({
+                                    icon: 'error',
+                                    title: 'Gagal',
+                                    text: 'Kode Produk Sudah Ada',
+                                    timer: 2000,
+                                    button: false
+                                })
+                                //focus on kode_produk
+                                document.getElementById('kode_barang').focus()
+                            }
+
+                        } catch (err) {
+                            $.unblockUI();
+                            //create swal with title 'Error' and text 'Terjadi Kesalahan \n Sila Refresh Halaman Dengan Button 'OK'' , ok button refresh page and cancel button close swal and do nothing
+                            swal({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'Terjadi Kesalahan \n Sila Refresh Halaman Dengan Button OK',
+                                buttons: {
+                                    cancel: {
+                                        text: "Tutup",
+                                        visible: true,
+                                        closeModal: true,
+                                    },
+                                    ok: {
+                                        text: "Ok",
+                                        closeModal: true,
+                                        visible: true,
+                                        value: true,
+                                        className: "bg-success",
+                                        closeModal: true,
+                                        closeOnClick: true
+                                    }
+                                }
+                            }).then((value) => {
+                                if (value) {
+                                    window.location.href = 'list_produk.html'
+                                }
+                            })
+                            console.log(err)
+                        }
+
+
+                    }
+                });
+
 
 
             }
         }
 
-        
+
 
 
     </script>
