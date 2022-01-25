@@ -1,0 +1,356 @@
+import 'package:boss_app/controller/boss_controller.dart';
+import 'package:boss_app/global.dart' as globals;
+import 'package:boss_app/widgets/ourContainer.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+class ProdukAdmin extends StatefulWidget {
+  // const ProdukAdmin({Key? key}) : super(key: key);
+  @override
+  _ProdukAdminState createState() => _ProdukAdminState();
+}
+
+class _ProdukAdminState extends State<ProdukAdmin> {
+  late List<Map<String, dynamic>> _produkAll;
+  int _loadingProdukAll = 0;
+  int _pageNumber = 5;
+  int _pageNumberIndex = 3;
+
+  // ignore: avoid_void_async
+  void _ambilProdukAll(
+      BuildContext context, int pageNumber, String filter) async {
+    // print(context);
+    // print('hehe');
+    _produkAll = [];
+    final BossController _toController =
+        Provider.of<BossController>(context, listen: false);
+
+    // print(_login);
+    try {
+      final Map _data = await _toController.ambilProdukAll(pageNumber, filter);
+
+      if (_data['status'] == 'success') {
+        //loop the _data['data'] and push to _laporan by field waktu, status, dan ket
+        if (_data['data'].length > 0) {
+          // print(_data['ceil'].toString());
+          _produkAll = (_data['data'] as List)
+              .map((dynamic item) => item as Map<String, dynamic>)
+              .toList();
+          // print(_produkAll);
+          setState(() {
+            _loadingProdukAll = 1;
+            // _pageNumber = (_data['ceil'] / 10).ceil();
+            // print(_pageNumber.toString() + " sini lagi try");
+          });
+        } else {
+          setState(() {
+            _loadingProdukAll = 2;
+          });
+        }
+      } else if (_data['status'] == 'error') {
+        setState(() {
+          _loadingProdukAll = 3;
+        });
+      }
+    } catch (e) {
+      print(e);
+      setState(() {
+        _loadingProdukAll = 3;
+      });
+    }
+  }
+
+  @override
+  void didChangeDependencies() {
+    _ambilProdukAll(context, 1, '');
+    // print('hehehe');
+    // print(_pageNumber.toString() + "sini ceil");
+    super.didChangeDependencies();
+
+    // super.initState();
+  }
+
+  final TextEditingController _filterProduk = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 20),
+            OurContainer(
+              child: Column(
+                children: [
+                  const Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      "Filter Produk",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Flexible(
+                        child: TextFormField(
+                          controller: _filterProduk,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            isDense: true,
+                            hintText: 'Kode / Nama Produk',
+                            filled: true,
+                            fillColor: const Color.fromARGB(255, 247, 247, 247),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: Text('Cari'),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  if (_loadingProdukAll == 0)
+                    Center(child: CircularProgressIndicator())
+                  else if (_loadingProdukAll == 1)
+                    Container(
+                      height: 400,
+                      child: SingleChildScrollView(
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Column(
+                            children: [
+                              DataTable(
+                                columns: const [
+                                  DataColumn(
+                                    label: Text('Kode'),
+                                  ),
+                                  DataColumn(
+                                    label: Text('Nama'),
+                                  ),
+                                  DataColumn(
+                                    label: Text('Harga'),
+                                  ),
+                                  DataColumn(
+                                    label: Text('Stok'),
+                                  ),
+                                  DataColumn(
+                                    label: Text('Laporan'),
+                                  ),
+                                ],
+                                rows: _produkAll
+                                    .where((Map<String, dynamic> item) =>
+                                        item['nama']
+                                            .toString()
+                                            .toLowerCase()
+                                            .contains(_filterProduk.text
+                                                .toLowerCase()))
+                                    .map((Map<String, dynamic> item) => DataRow(
+                                          cells: [
+                                            DataCell(
+                                              Row(
+                                                children: [
+                                                  Text(item['kode_barang']
+                                                      .toString()),
+                                                  const SizedBox(width: 10),
+                                                  GestureDetector(
+                                                    onTap: () => _tampilkanFoto(
+                                                        context,
+                                                        item['no_barang'],
+                                                        item['foto']),
+                                                    child: Hero(
+                                                      tag: 'image' +
+                                                          item['no_barang'],
+                                                      child: CircleAvatar(
+                                                        radius: 15,
+                                                        backgroundImage:
+                                                            NetworkImage(
+                                                          globals.http_to_server +
+                                                              "img/" +
+                                                              item[
+                                                                  'no_barang'] +
+                                                              "/" +
+                                                              item['foto'],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            DataCell(
+                                              Text(item['nama'].toString()),
+                                            ),
+                                            DataCell(
+                                              Text("Rp. ${item['harga_jual']}"),
+                                            ),
+                                            DataCell(
+                                              Text(item['jumlah'].toString()),
+                                            ),
+                                            DataCell(IconButton(
+                                              icon: const Icon(Icons.article),
+                                              color: Colors.blue,
+                                              onPressed: () {
+                                                print('sini ambil laporan');
+                                              },
+                                            )),
+                                          ],
+                                        ))
+                                    .toList(),
+                              ),
+                              _pageButton(),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  else if (_loadingProdukAll == 2)
+                    const Text(
+                      'Tidak ada data',
+                      textAlign: TextAlign.center,
+                    )
+                  else if (_loadingProdukAll == 3)
+                    const Text(
+                      'Koneksi Ke Server Bermasalah, Sila Periksa Jaringan Anda',
+                      textAlign: TextAlign.center,
+                    )
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future<dynamic> _tampilkanFoto(
+      BuildContext context, String item, String foto) {
+    return showModalBottomSheet(
+      isScrollControlled: true,
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      builder: (context) => SingleChildScrollView(
+        child: Column(
+          children: [
+            Hero(
+              tag: 'image' + item,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.network(
+                  globals.http_to_server + "img/" + item + "/" + foto,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Row _pageButton() {
+    print(_pageNumber.toString() + "sini page");
+    List<Widget> _pageButton = <Widget>[];
+    if (_pageNumber >= 1 && _pageNumber <= 3) {
+      for (int i = 1; i <= _pageNumber; i++) {
+        _pageButton.add(
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              shape: CircleBorder(),
+            ),
+            onPressed: () {
+              print('sini page button' + i.toString());
+            },
+            child: Text(i.toString()),
+          ),
+        );
+      }
+    } else if (_pageNumber > 3) {
+      _pageButton.add(
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            shape: CircleBorder(),
+            primary: (_pageNumberIndex != 1) ? Colors.blue : Colors.grey,
+          ),
+          onPressed: () {
+            print('<');
+          },
+          child: Text('<'),
+        ),
+      );
+      _pageButton.add(
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            shape: CircleBorder(),
+            primary: (_pageNumberIndex != 1) ? Colors.blue : Colors.grey,
+          ),
+          onPressed: () {
+            print('1');
+          },
+          child: Text('1'),
+        ),
+      );
+      _pageButton.add(
+        Text('...'),
+      );
+
+      if (_pageNumberIndex != 1 && _pageNumberIndex != _pageNumber) {
+        _pageButton.add(
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              shape: CircleBorder(),
+              primary: Colors.grey,
+            ),
+            onPressed: () {
+              print('sini page button' + _pageNumberIndex.toString());
+            },
+            child: Text(_pageNumberIndex.toString()),
+          ),
+        );
+        _pageButton.add(
+          Text('...'),
+        );
+      }
+
+      _pageButton.add(
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            shape: CircleBorder(),
+            primary:
+                (_pageNumberIndex != _pageNumber) ? Colors.blue : Colors.grey,
+          ),
+          onPressed: () {
+            print(_pageNumber.toString());
+          },
+          child: Text(_pageNumber.toString()),
+        ),
+      );
+      _pageButton.add(
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            shape: CircleBorder(),
+            primary:
+                (_pageNumberIndex != _pageNumber) ? Colors.blue : Colors.grey,
+          ),
+          onPressed: () {
+            print('>');
+          },
+          child: Text('>'),
+        ),
+      );
+    }
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: _pageButton,
+    );
+  }
+}
