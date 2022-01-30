@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Halaman Laporan Admin</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="description" content="HexaBit Bootstrap 4x Admin Template">
+    <meta name="author" content="WrapTheme, www.thememakker.com">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="template_assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="template_assets/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="template_assets/vendor/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css">
+    <!-- <link rel="stylesheet" href="template_assets/vendor/chartist/css/chartist.min.css"> -->
+    <!-- <link rel="stylesheet" href="template_assets/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css"> -->
+    <link rel="stylesheet" href="template_assets/vendor/toastr/toastr.min.css">
+    <!-- <link rel="stylesheet" href="template_assets/vendor/morrisjs/morris.css" /> -->
+
+    <link rel="stylesheet" href="template_assets/vendor/jquery-datatable/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="assets/dist/css/lightbox.min.css">
+
+    <link rel="stylesheet" href="template_assets/vendor/sweetalert/sweetalert.css">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/color_skins.css">
+</head>
+
+<body class="theme-cyan">
+
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="m-t-30"><img src="template_assets/images/icon-light.svg" width="48" height="48" alt="HexaBit">
+            </div>
+            <p>Loading...</p>
+        </div>
+    </div>
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+
+    <div id="wrapper">
+
+        <nav class="navbar navbar-fixed-top">
+            <div class="container-fluid">
+
+                <div class="navbar-left">
+                    <div class="navbar-btn">
+                        <a href="admin_index.html"><img src="template_assets/images/icon-light.svg" alt="HexaBit Logo"
+                                class="img-fluid logo"></a>
+                        <button type="button" class="btn-toggle-offcanvas"><i
+                                class="lnr lnr-menu fa fa-bars"></i></button>
+                    </div>
+                    <a href="javascript:void(0);" class="icon-menu btn-toggle-fullwidth"><i
+                            class="fa fa-arrow-left"></i></a>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown dropdown-animated scale-right">
+                            <a href="javascript:void(0);" class="dropdown-toggle icon-menu" data-toggle="dropdown"><i
+                                    class="icon-grid"></i></a>
+                            <ul class="dropdown-menu menu-icon app_menu">
+                                <li>
+                                    <a class="#">
+                                        <i class="icon-envelope"></i>
+                                        <span>Halaman Penjualan</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="#">
+                                        <i class="icon-bubbles"></i>
+                                        <span>Laporan </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="navbar-right">
+                    <!-- <form id="navbar-search" class="navbar-form search-form">
+                        <input value="" class="form-control" placeholder="Search here..." type="text">
+                        <button type="button" class="btn btn-default"><i class="icon-magnifier"></i></button>
+                    </form> -->
+
+                    <div id="navbar-menu">
+                        <ul class="nav navbar-nav">
+
+                            <li><a href="page-login.html" class="icon-menu"><i class="icon-power"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <div id="left-sidebar" class="sidebar">
+            <div class="navbar-brand">
+                <a href="admin_index.html"><img src="template_assets/images/icon-light.svg" alt="HexaBit Logo"
+                        class="img-fluid logo"><span>Kicap Karan</span></a>
+                <button type="button" class="btn-toggle-offcanvas btn btn-sm btn-default float-right"><i
+                        class="lnr lnr-menu fa fa-chevron-circle-left"></i></button>
+            </div>
+            <div class="sidebar-scroll">
+                <div class="user-account">
+                    <div class="user_div">
+                        <img src="template_assets/admin.png" class="user-photo" alt="User Profile Picture">
+                    </div>
+                    <div class="dropdown">
+                        <span>Selamat Datang,</span>
+                        <a href="javascript:void(0);" class="dropdown-toggle user-name"
+                            data-toggle="dropdown"><strong>Admin</strong></a>
+                        <ul class="dropdown-menu dropdown-menu-right account">
+                            <!-- <li><a href="page-profile.html"><i class="icon-user"></i>My Profile</a></li>
+                            <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
+                            <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li>
+                            <li class="divider"></li> -->
+                            <li><a href="#" onclick="logout()"><i class="icon-power"></i>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <nav id="left-sidebar-nav" class="sidebar-nav">
+                    <ul id="main-menu" class="metismenu">
+                        <li><a href="admin_index.html"><i class="icon-basket-loaded"></i><span>Halaman
+                                    Penjualan</span></a></li>
+                        <li><a href="penambahan_produk.html"><i class="fa fa-edit"></i><span>Produk Baru</span></a></li>
+                        <li><a href="list_produk.html"><i class=" icon-list"></i><span>List Produk</span></a></li>
+                        <li class="active"><a href="laporan.html"><i class="icon-book-open"></i><span>Log Laporan</span></a></li>
+
+
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div id="main-content">
+            <div class="block-header">
+                <div class="row clearfix">
+                    <div class="col-md-6 col-sm-12">
+                        <h2>Halaman Laporan</h2>
+                    </div>
+                    <div class="col-md-6 col-sm-12 text-right">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="admin_index.html"><i class="icon-home"></i></a></li>
+                            <li class="breadcrumb-item active">Halaman Laporan</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <!-- SINI MAIN NYA -->
+
+                <div class="row clearfix">
+                    <div class="col-lg-2 col-md-12"></div>
+
+                    <div class="col-lg-8 col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2>Filter Laporan</h2>
+                            </div>
+                            <div class="body">
+                                <div class="row clearfix">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <select name="select_bulan" id="select_bulan" class="form-control">
+                                                <option value="" selected disabled>-Pilih Bulan</option>
+                                            </select>
+                                            <span class="help-block">Pilih Tahun Terlebih Dahulu</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <select name="select_tahun" id="select_tahun" class="form-control">
+                                                <option value="" selected disabled>-Pilih Tahun</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="text-center"><button class="btn btn-primary text-center"
+                                        onclick="filter_laporan('not')">Filter Laporan</button>&nbsp &nbsp<button
+                                        class="btn btn-info text-center" onclick="filter_laporan('all')">Tampilkan
+                                        Semua</button>&nbsp &nbsp<button class="btn btn-success text-center"
+                                        onclick="update_laporan_server()">Update Laporan Server</button></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-12"></div>
+                </div>
+
+                <div class="row clearfix">
+                    <div class="col-lg-1 col-md-12"></div>
+
+                    <div class="col-lg-10 col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2 id="title_laporan">Laporan</h2>
+                            </div>
+                            <div class="body">
+                                <div class="table-responsive" style="overflow-x: auto;">
+                                    <table
+                                        class="table table-bordered table-hover js-basic-example dataTable table-custom"
+                                        id="table_laporan">
+                                        <thead>
+                                            <tr>
+                                                <th>Waktu</th>
+                                                <th>Status</th>
+                                                <th>Kode Barang</th>
+                                                <th>Stok Sebelumnya</th>
+                                                <th>Stok Terbaru</th>
+                                                <th>Keterangan</th>
+                                            </tr>
+                                        </thead>
+
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-1 col-md-12"></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal fade" id="modal_info_penjualan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Info Penjualan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">Waktu</label>
+                        <input type="text" class="form-control" id="waktu" value="A4567" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Total Penjualan</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rp.</span>
+                            </div>
+                            <input type="text" class="form-control" id="total" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Pembayaran</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rp.</span>
+                            </div>
+                            <input type="text" class="form-control" id="pembayaran" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Kembalian</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rp.</span>
+                            </div>
+                            <input type="text" class="form-control" id="baki" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="table-responsive" style="overflow-x: auto;">
+                            <table class="table table-bordered table-hover js-basic-example dataTable table-custom"
+                                id="table_penjualan">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Kode Barang</th>
+                                        <th>Jumlah Pembelian</th>
+                                        <th>Harga</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+
+
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="assets/bundles/libscripts.bundle.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script src="assets/bundles/vendorscripts.bundle.js"></script>
+
+    <!-- <script src="assets/bundles/chartist.bundle.js"></script> -->
+    <script src="template_assets/vendor/toastr/toastr.js"></script>
+    <!--script src="assets/bundles/morrisscripts.bundle.js"></script-->
+    <!-- Morris Plugin Js -->
+
+    <script src="assets/bundles/mainscripts.bundle.js"></script>
+    <script src="assets/js/index.js"></script>
+    <script src="assets/dist/js/lightbox.min.js"></script>
+    <script src="template_assets/vendor/sweetalert/sweetalert.js"></script>
+    <script src="assets/bundles/datatablescripts.bundle.js"></script>
+    <script src="template_assets/vendor/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
+    <script src="template_assets/vendor/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
+    <script src="assets/block/jquery.blockUI.js"></script>
+
+    <script src="main2.js"></script>
+    <script src="main.js"></script>
+
+    <script>
+        //select id=select_tahun start from 2021 to current year
+        var currentYear = new Date().getFullYear();
+        var startYear = 2021;
+        var currentMonth = new Date().getMonth() + 1;
+        var selectTahun = document.getElementById('select_tahun');
+        for (var i = startYear; i <= currentYear; i++) {
+            let opt = document.createElement('option');
+            opt.value = i;
+            opt.innerHTML = i;
+            selectTahun.appendChild(opt);
+        }
+
+        //create onchange event for select_tahun, if select_tahun is current year, select_bulan start from 1 to current month, else select_bulan start from 1 to 12
+        selectTahun.onchange = function () {
+            let selectBulan = document.getElementById('select_bulan');
+            let selectedYear = selectTahun.options[selectTahun.selectedIndex].value;
+            let opt = document.createElement('option');
+            opt.value = null;
+            opt.innerHTML = "-Pilih Bulan-";
+            opt.disabled = true;
+            opt.selected = true;
+            if (selectedYear == currentYear) {
+                selectBulan.innerHTML = "";
+                //appendChild "-Pilih Bulan-" to select_bulan and make this option selected disabled and value=null
+
+                selectBulan.appendChild(opt);
+                for (let i = 1; i <= currentMonth; i++) {
+                    let opt = document.createElement('option');
+                    opt.value = i;
+                    opt.innerHTML = i;
+                    selectBulan.appendChild(opt);
+                }
+            } else {
+                selectBulan.innerHTML = "";
+
+                selectBulan.appendChild(opt);
+                for (let i = 1; i <= 12; i++) {
+                    let opt = document.createElement('option');
+                    opt.value = i;
+                    opt.innerHTML = i;
+                    selectBulan.appendChild(opt);
+                }
+            }
+        }
+
+        async function laporan_umum(bulan = currentMonth, tahun = currentYear, all = "not") {
+            //h2 id="title_laporan" html="Laporan Bulan " + bulan + ", Tahun " + tahun
+            let title_laporan = document.getElementById('title_laporan');
+
+            if (all == 'not') {
+                title_laporan.innerHTML = "Laporan Bulan " + nama_bulan(bulan) + ", Tahun " + tahun;
+                try {
+                    sedang_proses();
+                    //create fetch get with basic auth
+                    const response = await fetch('http://localhost/ilham/server/api/laporan?bulan=' + bulan + '&tahun=' + tahun, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Basic ' + btoa('Kicap_karan:bb10c6d9f01ec0cb16726b59e36c2f73')
+                        }
+                    });
+
+                    //get response json
+                    const json = await response.json();
+                    // console.log(json)
+                    if (response.status == 200) {
+                        // console.log(json)
+                        let data = json.data;
+
+                        //destroy table id=table_laporan
+                        if (data.length == 0) {
+                            title_laporan.innerHTML = "Tiada Laporan Bulan " + nama_bulan(bulan) + ", Tahun " + tahun;
+                        }
+                        await $('#table_laporan').DataTable().destroy();
+                        await $('#table_laporan').DataTable({
+                            data: data,
+                            columns: [{
+                                data: 'waktu'
+                            },
+                            {
+                                data: 'status'
+                            },
+                                null,
+                                null,
+                                null,
+
+                            ],
+                            destroy: true,
+                            "columnDefs": [{
+                                "targets": [0],
+                                // "visible": false,
+                            }],
+                            "order": [
+                                [0, 'asc']
+                            ],
+                            // paging: false,
+                            "aoColumnDefs": [
+                                {
+                                    "aTargets": [5],
+                                    "mData": null,
+                                    "mRender": function (data, type, row, meta) {
+                                        let datanya = JSON.parse(data.ket);
+                                        // console.log(datanya)
+                                        let returnnya;
+                                        if (data.status == "Penambahan Produk Baru") {
+                                            returnnya = `Kode Produk : ${datanya.kode_barang}<br>Nama : ${datanya.nama}<br>Stok : ${datanya.jumlah}<br>Harga Pembelian Stok : Rp. ${datanya.pembelian_stok}<br>Harga Jual : Rp. ${datanya.harga_jual}`
+                                        } else if (data.status == "Penambahan Stok") {
+                                            returnnya = `Penambahan Stok : ${datanya.penambahan_stok}<br>Harga Pembelian Stok : Rp. ${datanya.harga_pembelian_stok}<br>Jumlah Stok Sebelumnya: ${datanya.jumlah_stok_sebelumnya}<br>Jumlah Stok Sekarang: ${datanya.total_stok}`
+                                        } else if (data.status == "Edit Detail Produk") {
+                                            let nama = (datanya.nama_lama == datanya.nama_baru) ? '' : 'Nama : ' + datanya.nama_lama + ' => ' + datanya.nama_baru;
+                                            let harga = (datanya.harga_lama == datanya.harga_baru) ? '' : 'Harga : Rp. ' + datanya.harga_lama + ' => Rp. ' + datanya.harga_baru;
+                                            let foto = (datanya.foto_lama == datanya.foto_baru) ? '' : 'Foto : ' + datanya.foto_lama + ' => ' + datanya.foto_baru;
+                                            returnnya = nama + ((harga != '') ? '<br>' : '') + harga + ((foto != '') ? '<br>' : '') + foto;
+                                        } else if (data.status == "Penjualan Produk") {
+                                            returnnya = `<button class="btn btn-primary btn-sm text-center"
+                                        onclick="info_penjualan(${data.no_log})">Info Penjualan</button>`
+                                        }
+                                        return returnnya;
+                                    }
+                                }, {
+                                    "aTargets": [2],
+                                    "mData": 'kode_barang',
+                                    "mRender": function (data, type, row, meta) {
+                                        return data;
+                                    }
+                                }, {
+                                    "aTargets": [3],
+                                    "mData": null,
+                                    "mRender": function (data, type, row, meta) {
+                                        let datanya = JSON.parse(data.ket);
+                                        // console.log(datanya)
+                                        let returnnya;
+                                        if (data.status == "Penambahan Stok") {
+                                            returnnya = datanya.jumlah_stok_sebelumnya
+                                        } else if (data.status == "Edit Detail Produk" || data.status == "Penjualan Produk" || data.status == "Penambahan Produk Baru") {
+                                            returnnya = '-'
+                                        }
+                                        return returnnya;
+                                    }
+                                }, {
+                                    "aTargets": [4],
+                                    "mData": null,
+                                    "mRender": function (data, type, row, meta) {
+                                        let datanya = JSON.parse(data.ket);
+                                        // console.log(datanya)
+                                        let returnnya;
+                                        if (data.status == "Penambahan Produk Baru") {
+                                            returnnya = datanya.jumlah
+                                        } else if (data.status == "Penambahan Stok") {
+                                            returnnya = datanya.total_stok
+                                        } else if (data.status == "Edit Detail Produk" || data.status == "Penjualan Produk") {
+                                            returnnya = '-'
+                                        }
+                                        return returnnya;
+                                    }
+                                }
+                            ]
+
+                        });
+
+
+                    } else {
+                        swal({
+                            icon: 'error',
+                            title: 'Gagal',
+                            text: 'Silahkan Coba Lagi',
+                            timer: 2000,
+                            button: false
+                        })
+                    }
+                    $.unblockUI();
+                }
+                catch (err) {
+                    $.unblockUI();
+                    swal({
+                        icon: 'error',
+                        title: 'Gagal',
+                        text: 'Silahkan Coba Lagi',
+                        timer: 2000,
+                        button: false
+                    })
+                }
+            }
+            else if (all == 'all') {
+                title_laporan.innerHTML = "Laporan Keseluruhan ";
+                try {
+                    sedang_proses();
+                    //create fetch get with basic auth
+                    const response = await fetch('http://localhost/ilham/server/api/laporan?bulan=' + bulan + '&tahun=' + tahun, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Basic ' + btoa('Kicap_karan:bb10c6d9f01ec0cb16726b59e36c2f73')
+                        }
+                    });
+
+                    //get response json
+                    const json = await response.json();
+                    // console.log(json)
+                    if (response.status == 200) {
+                        // console.log(json)
+                        let data = json.data;
+
+                        //destroy table id=table_laporan
+                        await $('#table_laporan').DataTable().destroy();
+                        $('#table_laporan').DataTable({
+                            "processing": true,
+                            "serverSide": true,
+                            "ajax": {
+                                "url": "http://localhost/ilham/server/",
+                                "type": "POST",
+                                data: { proses: 'get_laporan' },
+                            },
+
+                            "columnDefs": [
+                                {
+                                    "targets": [2, 3, 4, 5],
+                                    "orderable": false,
+                                },
+                            ],
+
+
+
+                        });
+                    } else {
+                        swal({
+                            icon: 'error',
+                            title: 'Gagal',
+                            text: 'Silahkan Coba Lagi',
+                            timer: 2000,
+                            button: false
+                        })
+                    }
+                    $.unblockUI();
+                }
+                catch (err) {
+                    $.unblockUI();
+                    swal({
+                        icon: 'error',
+                        title: 'Gagal',
+                        text: 'Silahkan Coba Lagi',
+                        timer: 2000,
+                        button: false
+                    })
+                }
+            }
+
+
+
+        }
+        laporan_umum();
+
+        function filter_laporan(stat) {
+            console.log(stat)
+            if (stat == 'not') {
+                // create letiables bulan = input id="select_bulan" and tahun = input id="select_tahun"
+                let bulan = document.getElementById('select_bulan').value;
+                let tahun = document.getElementById('select_tahun').value;
+                // console.log(bulan)
+                // console.log(tahun)
+                //if bulan and tahun is not null or not empty or not undefined 
+                if (bulan != '' && tahun != '' && bulan != 'null') {
+                    laporan_umum(bulan, tahun, "not");
+                } else {
+                    //create toastr error position on center top with 2 sec text ="Bulan dan Tahun Harus Dipilih" and focus to select_tahun
+                    toastr.error('Bulan dan Tahun Harus Dipilih', '', {
+                        "positionClass": "toast-top-center",
+                        "closeButton": true,
+                        "progressBar": true,
+                        "preventDuplicates": true,
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut",
+                        "timeOut": 2000
+                    });
+                    $('#select_tahun').focus();
+                }
+
+            }
+            else if (stat == 'all') {
+                laporan_umum(null, null, 'all')
+            }
+
+        }
+
+        async function info_penjualan(id) {
+            try {
+                sedang_proses();
+                //create fetch get with basic auth
+                const response = await fetch('http://localhost/ilham/server/api/laporan_detail?id=' + id, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Basic ' + btoa('Kicap_karan:bb10c6d9f01ec0cb16726b59e36c2f73')
+                    }
+                });
+
+                //get response json
+                const json = await response.json();
+                // console.log(json)
+                if (response.status == 200) {
+                    console.log(json)
+                    let data = json.data
+                    // input id=waktu =data.waktu
+                    let json_ket = JSON.parse(data.ket);
+                    console.log(json_ket)
+                    // input id=total =data.total_belanja
+                    // input id=pembayaran =data.pembayaran
+                    // input id=baki =data.baki
+                    document.getElementById('waktu').value = data.waktu;
+                    document.getElementById('total').value = json_ket.total_belanja;
+                    document.getElementById('pembayaran').value = json_ket.pembayaran;
+                    document.getElementById('baki').value = json_ket.baki;
+
+                    await $('#table_penjualan').DataTable().destroy();
+                    await $('#table_penjualan').DataTable({
+                        data: json_ket.ket,
+                        columns: [
+                            null,
+                            {
+                                data: 'kode_barang'
+                            },
+                            {
+                                data: 'jumlah'
+                            },
+                            null,
+                            null,
+
+                        ],
+                        destroy: true,
+                        "columnDefs": [{
+                            "targets": [0],
+                            // "visible": false,
+                        }],
+                        "order": [
+                            [0, 'asc']
+                        ],
+                        // paging: false,
+                        "aoColumnDefs": [
+                            {
+                                "aTargets": [0],
+                                "mData": null,
+                                "mRender": function (data, type, row, meta) {
+                                    // console.log(meta.settings)
+                                    return meta.row + 1;
+                                }
+                            }, {
+                                "aTargets": [3],
+                                "mData": null,
+                                "mRender": function (data, type, row, meta) {
+                                    return 'Rp. ' + data.harga_jual;
+                                }
+                            }, {
+                                "aTargets": [4],
+                                "mData": null,
+                                "mRender": function (data, type, row, meta) {
+                                    return 'Rp. ' + add_comma(data.total);
+                                }
+                            }
+
+                        ]
+
+                    });
+
+
+
+                    //open modal id=modal_info_penjualan
+                    $('#modal_info_penjualan').modal('show');
+
+                } else {
+                    swal({
+                        icon: 'error',
+                        title: 'Gagal',
+                        text: 'Silahkan Coba Lagi',
+                        timer: 2000,
+                        button: false
+                    })
+                }
+
+                $.unblockUI();
+            }
+            catch (err) {
+                $.unblockUI();
+                swal({
+                    icon: 'error',
+                    title: 'Gagal',
+                    text: 'Silahkan Coba Lagi',
+                    timer: 2000,
+                    button: false
+                })
+            }
+        }
+
+        async function update_laporan_server() {
+            //create swal with 2 button "Update" and Tidak, if click "Update" then console.log('ok') else console.log('cancel')
+            swal({
+                title: '',
+                text: "Data Laporan Akan Diperbaharui",
+                icon: 'info',
+                buttons: true,
+                dangerMode: false,
+            }).then(async (willDelete) => {
+                if (willDelete) {
+                    // 
+                    try {
+                        sedang_proses();
+                        //create fetch get with basic auth
+                        const response = await fetch('http://localhost/ilham/server/api/update_laporan', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': 'Basic ' + btoa('Kicap_karan:bb10c6d9f01ec0cb16726b59e36c2f73')
+                            }
+                        });
+
+                        //get response json
+                        const json = await response.json();
+                        // console.log(json)
+                        if (response.status == 200) {
+                            // console.log(json)
+                            if(json.stat == "already"){
+                                swal({
+                                    icon: 'info',
+                                    title: 'Info',
+                                    text: 'Data Laporan Sudah Diperbaharui',
+                                    timer: 2000,
+                                    button: false
+                                })
+                            }else if(json.stat == "success"){
+                                swal({
+                                    icon: 'success',
+                                    title: 'Berhasil',
+                                    text: 'Data Laporan Berhasil Diperbaharui',
+                                    timer: 2000,
+                                    button: false
+                                })
+                            }
+                            
+                        } else {
+                            swal({
+                                icon: 'error',
+                                title: 'Gagal',
+                                text: 'Silahkan Coba Lagi',
+                                timer: 2000,
+                                button: false
+                            })
+                        }
+                        $.unblockUI();
+                    } catch (err) {
+                        $.unblockUI();
+                        swal({
+                            icon: 'error',
+                            title: 'Gagal',
+                            text: 'Silahkan Coba Lagi',
+                            timer: 2000,
+                            button: false
+                        })
+                    }
+                    
+                } else {
+                    // console.log('cancel')
+                }
+            });
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>
