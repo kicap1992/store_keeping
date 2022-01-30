@@ -8,11 +8,12 @@ import 'package:timezone/data/latest.dart' as tz;
 import 'controller/boss_controller.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   tz.initializeTimeZones();
   // final locationName = await FlutterNativeTimezone.getLocalTimezone();
   // tz.setLocalLocation(tz.getLocation(locationName));
   // tz.initializeTimeZones();
-  // WidgetsFlutterBinding.ensureInitialized();
+  
   // NotificationApi().initNotification();
   runApp(const MyApp());
 }
